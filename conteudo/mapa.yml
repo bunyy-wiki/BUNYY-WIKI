@@ -1,0 +1,174 @@
+grupo: &id001
+- bunyy-grimm
+- any
+- onhos-lupan
+- norman
+capturado:
+  personagem: dimitri-grimm
+  novel: 2
+reforco:
+  personagem: capita-gancho
+  novel: 4
+paradas:
+- id: onoath
+  nome: Onoath
+  x: 360
+  y: 255
+  novel: 1
+  onde_ler: HQ 1
+  pagina: onoath
+  quem:
+  - bunyy-grimm
+  - any
+  - onhos-lupan
+  - norman
+  - dimitri-grimm
+  - rebeca-branco
+  texto: A Ordem do Fogo atravessa a cidade até os muros, ouve a Rebeca apresentar a Prova dos Sete Dias e sai pelo portão norte.
+- id: acampamento
+  nome: Acampamento ao norte
+  x: 340
+  y: 75
+  novel: 1
+  onde_ler: HQ 1 a 3
+  pagina: floresta-dos-pinheiros-negros
+  quem:
+  - bunyy-grimm
+  - any
+  - onhos-lupan
+  - norman
+  - dimitri-grimm
+  - ynsonia
+  texto: Depois de um dia de caminhada para o norte, o grupo acampa. À noite o Dim é sequestrado e levado ao Domínio Sombrio. O Ynsonia encontra o Norman; Bunyy, Onhos e Any chegam, derrotam o Ynsonia e voltam ao acampamento.
+- id: noroeste
+  nome: Entrada noroeste
+  x: 285
+  y: 195
+  novel: 3
+  onde_ler: HQ 3
+  pagina: onoath
+  quem:
+  - bunyy-grimm
+  - any
+  - onhos-lupan
+  - norman
+  - rebeca-branco
+  texto: O grupo volta à cidade pela entrada noroeste. O governo se recusa a buscar o Dim, a Rebeca entrega um rastreador de sombras, e eles seguem sozinhos para o sul.
+- id: ravina
+  nome: A ravina
+  x: 350
+  y: 385
+  novel: 4
+  onde_ler: HQ 4
+  pagina: floresta-dos-pinheiros-negros
+  quem: *id001
+  texto: Ao sul da cidade, uma ravina bloqueia o caminho, e o grupo tenta contorná-la por dentro de uma caverna.
+- id: caverna
+  nome: Caverna do Dragão
+  x: 455
+  y: 430
+  novel: 4
+  onde_ler: HQ 4
+  pagina: floresta-dos-pinheiros-negros
+  quem: *id001
+  texto: 'Dentro da montanha eles fogem de um dragão, Any e Onhos derrubam a caverna, e o Norman sai com um ovo roubado: o Pereira.'
+- id: margem
+  nome: Margem do mar
+  x: 580
+  y: 500
+  novel: 4
+  onde_ler: HQ 5
+  pagina: floresta-dos-pinheiros-negros
+  quem:
+  - bunyy-grimm
+  - any
+  - onhos-lupan
+  - norman
+  - capita-gancho
+  - fera
+  texto: 'Saindo da caverna, contornam a montanha (no caminho: cobras, sereias e uma entidade ancestral) e chegam à margem do mar, onde são levados para a Jolly Roger III.'
+- id: navio
+  nome: Jolly Roger III
+  x: 670
+  y: 560
+  novel: 5
+  onde_ler: HQ 7, 8 e 10
+  pagina: jolly-roger-iii
+  quem:
+  - bunyy-grimm
+  - any
+  - onhos-lupan
+  - norman
+  - capita-gancho
+  - fera
+  texto: A bordo, a Gancho revela que Bunyy é o Receptáculo de Endos, treina o grupo e distribui as relíquias. O navio segue para leste, rumo ao Domínio Sombrio.
+- id: torre
+  nome: Torre das Aranhas
+  x: 745
+  y: 420
+  novel: 7
+  onde_ler: HQ 10 (continua na novel 8)
+  pagina: floresta-dos-pinheiros-negros
+  quem:
+  - bunyy-grimm
+  - any
+  - onhos-lupan
+  - norman
+  - capita-gancho
+  - fera
+  texto: Quase chegando, o navio vai até a margem e Onhos, Any, Gancho, Fera, Bunyy e Norman entram na torre. Bunyy desperta o Corte Flamejante. Na saída, Norman e Fera ficam presos lá dentro; o grupo só lembra deles depois de zarpar e volta para buscá-los.
+- id: ataque
+  nome: Ataque à Jolly Roger
+  x: 810
+  y: 555
+  novel: 9
+  onde_ler: Só na novel (cap. 9)
+  pagina: jolly-roger-iii
+  quem:
+  - bunyy-grimm
+  - any
+  - onhos-lupan
+  - norman
+  - capita-gancho
+  - fera
+  - babayaga
+  - ynsonia
+  texto: Pouco depois, Toxcyna, Babayaga (a Cuca), Ynsonia e os dois palhacinhos atacam o navio. Babayaga e Gancho voam para a floresta e depois voltam. Os invasores se teletransportam de volta ao Domínio, e o navio segue viagem.
+- id: dominio
+  nome: Domínio Sombrio
+  x: 925
+  y: 300
+  novel: 2
+  onde_ler: Destino da jornada
+  pagina: dominio-sombrio
+  quem:
+  - dimitri-grimm
+  - arthur
+  - babayaga
+  - ynsonia
+  - mel
+  texto: O reino de Arthur, numa árvore cercada por mar, a leste. O Dim está preso lá desde a noite do sequestro.
+  destino: true
+rotas_viloes:
+- de: acampamento
+  para: dominio
+  novel: 2
+  legenda: Dim levado
+  curva_x: 620
+  curva_y: -10
+  legenda_x: 530
+  legenda_y: 60
+- de: ataque
+  para: dominio
+  novel: 9
+  legenda: teleporte de volta
+  curva_x: 825
+  curva_y: 400
+  legenda_x: 880
+  legenda_y: 480
+duelo:
+  nome: Duelo Gancho × Babayaga
+  x: 700
+  y: 330
+  novel: 9
+  de: ataque

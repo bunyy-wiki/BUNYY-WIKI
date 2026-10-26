@@ -1,0 +1,92 @@
+hq:
+- numero: 1
+  titulo: Faça uma boa prova
+  classificacao: A12
+  capa: imagens/hq/capa-01.jpg
+- numero: 2
+  titulo: Insônia
+  classificacao: A12
+  capa: imagens/hq/capa-02.jpg
+- numero: 3
+  titulo: Endos
+  classificacao: A12
+  capa: imagens/hq/capa-03-endos.jpg
+- numero: 4
+  titulo: Caverna do Dragão
+  classificacao: A12
+  capa: imagens/hq/capa-04.jpg
+- numero: 5
+  titulo: Guerreiro Lendário
+  classificacao: A12
+  capa: imagens/hq/capa-05.jpg
+- numero: 6
+  titulo: Monstro
+  classificacao: A16
+  capa: imagens/hq/capa-06.jpg
+- numero: 7
+  titulo: Gancho
+  classificacao: A12
+  capa: imagens/hq/capa-07.jpg
+- numero: 8
+  titulo: Merlin
+  classificacao: A14
+  capa: imagens/hq/capa-08.jpg
+- numero: 9
+  titulo: Parte Podre
+  classificacao: A14
+  capa: imagens/hq/capa-09.jpg
+- numero: 10
+  titulo: Espada Matriz
+  classificacao: A12
+  capa: imagens/hq/capa-10.jpg
+novel:
+- numero: 1
+  titulo: Faça uma Boa Prova
+  link: ''
+  capitulos_da_hq:
+  - 1
+- numero: 2
+  titulo: Ynsonia
+  link: https://drive.google.com/file/d/1-MTeYoyU28fQGuLtsa4NSOJJARVL6G6i/view?usp=drivesdk
+  capitulos_da_hq:
+  - 2
+- numero: 3
+  titulo: ''
+  link: ''
+  capitulos_da_hq:
+  - 3
+- numero: 4
+  titulo: ''
+  link: ''
+  capitulos_da_hq:
+  - 4
+  - 5
+- numero: 5
+  titulo: ''
+  link: ''
+  capitulos_da_hq:
+  - 7
+  - 8
+- numero: 6
+  titulo: ''
+  link: ''
+  capitulos_da_hq:
+  - 6
+  - 9
+- numero: 7
+  titulo: ''
+  link: ''
+  capitulos_da_hq:
+  - 10
+- numero: 8
+  titulo: ''
+  link: ''
+  capitulos_da_hq: []
+- numero: 9
+  titulo: ''
+  link: ''
+  capitulos_da_hq: []
+- numero: 10
+  titulo: ''
+  link: ''
+  capitulos_da_hq: []
