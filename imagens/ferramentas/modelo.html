@@ -1,0 +1,903 @@
+<title>Bunyy Wiki</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Wiki de fãs da HQ e novel BUNYY, de Toom: personagens, capítulos, mundo e mistérios.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Comic+Neue:wght@700&family=JetBrains+Mono:wght@500&family=Unbounded:wght@500;700&family=Outfit:wght@500;700;800&display=swap">
+<style>
+@font-face { font-family: "Warning"; src: url(data:font/woff2;base64,/*__WARNING__*/) format("woff2"); font-display: swap; }
+/* Layout: cabeçalho branco + faixa de abas (HQs, Novels…) + início em grade estilo wiki (destaques à esquerda, painel do logo à direita) */
+:root {
+  color-scheme: light;
+  --bg: #eef3f9;
+  --panel: #ffffff;
+  --soft: #f3f7fb;
+  --tab: #e3ebf4;
+  --tab-hover: #d5e1ee;
+  --ink: #111a26;
+  --muted: #53627a;
+  --line: #d3deeb;
+  --teal: #0d3b73;
+  --teal-2: #1565b3;
+  --teal-soft: rgba(21,101,179,0.09);
+  --navy: #0a1730;
+  --navy-2: #13264a;
+  --cyan: #4fd3f2;
+  --spark: #b02a6b;
+  --spark-soft: rgba(176,42,107,0.08);
+  --night: #0a1730;
+  --balloon: #ffffff;
+  --balloon-ink: #15121f;
+  --logo: "Warning", "Unbounded", "Arial Black", sans-serif;
+  --display: "Unbounded", "Arial Black", system-ui, sans-serif;
+  --body: "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  --comic: "Comic Neue", "Comic Sans MS", "Chalkboard SE", sans-serif;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { scroll-padding-top: 20px; }
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.6; margin: 0; }
+a { color: var(--teal-2); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--teal-2); outline-offset: 2px; border-radius: 3px; }
+.wrap { max-width: 1280px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+
+/* ---------- cabeçalho ---------- */
+.top { background: var(--navy); color: #e6eefb; }
+.top .wrap { display: flex; align-items: center; gap: 16px; padding-block: 12px; }
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.brand img { width: 120px; height: 30px; object-fit: contain; }
+.brand b { font-family: var(--logo); font-weight: 400; font-size: 32px; line-height: 1; padding-top: 0.2em; color: #ffffff; }
+.brand i { font-family: var(--logo); font-style: normal; font-size: 32px; line-height: 1; padding-top: 0.2em; color: var(--cyan); }
+.search { flex: 1; min-width: 0; max-width: 380px; margin-left: auto; }
+.search input { width: 100%; font: inherit; font-size: 15px; color: #ffffff; background: var(--navy-2); border: 1px solid #2a4370; border-radius: 999px; padding: 9px 16px; }
+.search input::placeholder { color: #a9b9d4; }
+
+/* ---------- abas ---------- */
+.tabs-band { background: var(--navy); border-top: 1px solid #1d3360; }
+.tabs ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 2px 22px; }
+.tabs a { display: block; padding: 11px 0 9px; color: #cfdcf2; text-decoration: none; font-family: "Outfit", var(--body); font-weight: 500; font-size: 16px; border-bottom: 3px solid transparent; white-space: nowrap; }
+.tabs a:hover { color: #ffffff; }
+.tabs a[aria-current="page"] { color: #ffffff; border-bottom-color: var(--cyan); }
+
+main { padding-block: 18px 56px; min-width: 0; }
+main:focus { outline: none; }
+
+/* ---------- início ---------- */
+.home { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr); grid-template-areas: "new spoil side" "eds eds side" "cats cats side"; gap: 14px; align-items: start; }
+.feat { grid-column: auto; position: relative; display: flex; flex-direction: column; justify-content: space-between; min-height: 300px; padding: 14px; border: 1px solid var(--line); color: #ffffff; text-decoration: none; overflow: hidden; background-color: var(--night); background-size: cover; background-position: center; }
+.feat.new { grid-area: new; background-image: linear-gradient(180deg, rgba(13,27,36,0.15), rgba(13,27,36,0.85)), repeating-linear-gradient(115deg, transparent 0 46px, rgba(82,214,224,0.10) 46px 48px), radial-gradient(circle at 70% 30%, #1f5c74 0, #0d1b24 70%); }
+.feat.spoil { grid-area: spoil; background-image: linear-gradient(180deg, rgba(13,27,36,0.1), rgba(13,27,36,0.9)), repeating-linear-gradient(65deg, transparent 0 38px, rgba(240,106,168,0.10) 38px 40px), radial-gradient(circle at 30% 30%, #4a1c39 0, #0d1b24 72%); }
+.feat-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
+.feat-head h2 { font-family: var(--body); font-weight: 700; font-size: 17px; margin: 0; line-height: 1.3; text-shadow: 0 1px 2px rgba(0,0,0,0.6); }
+.flag { flex: none; font-size: 13px; font-weight: 700; padding: 3px 8px; color: #ffffff; }
+.flag.green { background: #2e8b3a; }
+.flag.pink { background: #8e2a7c; }
+.feat-body { font-size: 15px; line-height: 1.45; max-width: 36ch; text-shadow: 0 1px 2px rgba(0,0,0,0.6); }
+.feat-body a { color: #ffffff; }
+.feat.has-img { background-image: var(--img) !important; }
+.feat.has-img::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.8)); }
+.feat > * { position: relative; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+.chips a { font-size: 14px; color: #ffffff; text-decoration: none; background: rgba(0,0,0,0.55); padding: 3px 9px; }
+.chips a:hover { background: rgba(0,0,0,0.8); }
+.reveal-wrap { position: relative; }
+.blurred { filter: blur(7px); user-select: none; pointer-events: none; }
+.reveal { position: absolute; inset: 0; margin: auto; width: fit-content; height: fit-content; font: inherit; font-weight: 700; font-size: 14px; color: #ffffff; background: rgba(0,0,0,0.65); border: 1px solid rgba(255,255,255,0.6); padding: 7px 14px; cursor: pointer; }
+.reveal:hover { background: rgba(0,0,0,0.85); }
+
+.side { grid-area: side; display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.box { border: 1px solid var(--line); background: var(--panel); padding: 16px; }
+.box h3 { font-family: var(--body); font-size: 18px; font-weight: 700; margin: 0 0 10px; }
+.logo-big { width: 100%; max-width: 300px; margin: 0 auto 14px; text-align: center; }
+.logo-big .lb-bunyy { display: block; font-family: var(--logo); font-size: 64px; line-height: 1; padding-top: 0.28em; color: var(--teal); }
+.logo-big .lb-sw { position: relative; margin-top: 18px; background: #14202a; border-radius: 10px; padding: 14px 16px; box-shadow: inset 0 0 0 2px var(--teal); }
+.logo-big svg { display: block; width: 100%; height: auto; }
+.logo-big .lb-wiki { display: block; text-align: center; font-family: var(--logo); font-size: 34px; line-height: 1; padding-top: 0.3em; margin-top: 4px; color: #ffffff; letter-spacing: 0.08em; }
+.welcome { font-size: 15px; margin: 0 0 12px; }
+.stats { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 12px; font-size: 14px; color: var(--muted); margin: 0 0 12px; }
+.stats b { color: var(--teal); }
+.social { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.social a { display: block; text-align: center; padding: 10px 6px; font-weight: 700; font-size: 14px; color: #ffffff; text-decoration: none; }
+.social .fl { background: var(--teal); }
+.social .yt { background: #c4302b; }
+.facts { margin: 0 0 12px; padding-left: 18px; font-size: 15px; }
+.facts li { margin-bottom: 8px; }
+.btn-full { display: block; width: 100%; font: inherit; font-weight: 700; font-size: 15px; padding: 9px; background: var(--tab); border: 1px solid #c5ccd1; color: var(--ink); cursor: pointer; text-align: center; text-decoration: none; }
+.btn-full:hover { background: var(--tab-hover); }
+
+.eds { grid-area: eds; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.ed { display: flex; gap: 12px; align-items: center; border: 1px solid var(--line); padding: 12px 14px; min-width: 0; }
+.ed .ic { flex: none; width: 34px; height: 34px; color: var(--teal); }
+.ed div { min-width: 0; }
+.ed a.t { display: block; font-weight: 700; font-style: italic; }
+.ed span { display: block; font-size: 14px; color: var(--muted); line-height: 1.35; }
+
+.cats { grid-area: cats; border: 1px solid var(--line); padding: 12px; display: grid; grid-template-columns: repeat(auto-fill, minmax(118px, 1fr)); gap: 10px; }
+.cat { display: flex; flex-direction: column; align-items: center; text-decoration: none; color: var(--ink); background: var(--tab); border: 1px solid #c5ccd1; border-bottom-width: 3px; }
+.cat:hover { background: var(--tab-hover); }
+.cat .art { width: 100%; display: grid; place-items: center; padding: 16px 0 12px; color: var(--teal); }
+.cat .art svg { width: 44px; height: 44px; }
+.cat b { display: block; width: 100%; text-align: center; font-size: 14px; padding: 8px 4px; background: var(--panel); border-top: 1px solid #c5ccd1; }
+
+/* ---------- início (vitrine) ---------- */
+.v-home { display: flex; flex-direction: column; gap: 38px; padding-top: 10px; }
+.v-hero { display: flex; flex-wrap: wrap; gap: 28px; align-items: center; }
+.v-hero-txt { flex: 1 1 420px; min-width: 0; }
+.v-eyebrow { margin: 0 0 8px; font-family: "Outfit", var(--body); font-weight: 700; color: var(--teal-2); letter-spacing: 0.1em; text-transform: uppercase; font-size: 13px; }
+.v-hero h1 { margin: 0 0 14px; font-family: "Outfit", var(--body); font-size: clamp(32px, 5vw, 50px); line-height: 1.05; font-weight: 800; color: var(--navy); text-wrap: balance; }
+.v-hero p.lead { margin: 0 0 16px; font-size: 18px; line-height: 1.55; color: #33425a; max-width: 52ch; }
+.v-stats { display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 0 0 20px; font-size: 15px; color: var(--muted); }
+.v-stats b { color: var(--navy); font-size: 18px; }
+.v-btns { display: flex; flex-wrap: wrap; gap: 10px; }
+.v-btn { display: inline-block; padding: 13px 22px; border-radius: 999px; font-family: "Outfit", var(--body); font-weight: 700; font-size: 16px; text-decoration: none; background: var(--teal-2); color: #ffffff; border: 2px solid var(--teal-2); }
+.v-btn:hover { background: var(--teal); border-color: var(--teal); }
+.v-btn.ghost { background: transparent; color: var(--teal-2); }
+.v-btn.ghost:hover { background: var(--teal-soft); }
+.v-hero-img { flex: 0 1 460px; width: 460px; max-width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 20px; background: var(--navy); box-shadow: 0 0 0 4px var(--cyan); }
+.v-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
+.v-head h2 { margin: 0; font-family: "Outfit", var(--body); font-size: 27px; font-weight: 800; color: var(--navy); }
+.v-head a { font-weight: 700; }
+.v-shelf { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 18px; }
+.v-shelf a { position: relative; display: flex; flex-direction: column; gap: 8px; color: var(--ink); text-decoration: none; }
+.v-shelf img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 12px; background: var(--navy); transition: transform .15s; }
+.v-shelf a:hover img { transform: translateY(-3px); }
+.v-shelf b { font-family: "Outfit", var(--body); font-weight: 700; font-size: 15px; line-height: 1.3; }
+.v-shelf small { color: var(--muted); font-size: 13px; }
+.v-new { position: absolute; top: 8px; left: 8px; background: var(--cyan); color: var(--navy); font-weight: 700; font-size: 12px; padding: 3px 9px; border-radius: 999px; }
+.v-cards { display: flex; flex-wrap: wrap; gap: 20px; }
+.v-card { flex: 1 1 320px; min-width: 0; background: var(--panel); border-radius: 18px; padding: 22px 24px; border: 1px solid var(--line); }
+.v-card h2 { margin: 0 0 12px; font-family: "Outfit", var(--body); font-size: 22px; font-weight: 800; color: var(--navy); }
+.v-card ul { margin: 0 0 14px; padding-left: 20px; line-height: 1.6; font-size: 16px; }
+.v-card li { margin-bottom: 8px; }
+.v-card.dark { background: var(--navy); border-color: var(--navy); color: #dbe6f7; }
+.v-card.dark h2 { color: #ffffff; }
+.v-card.dark a { color: var(--cyan); }
+.v-pill { display: inline-block; font: inherit; font-family: "Outfit", var(--body); font-weight: 700; font-size: 15px; padding: 9px 18px; border-radius: 999px; background: var(--tab); border: 0; color: var(--navy); cursor: pointer; text-decoration: none; }
+.v-pill:hover { background: var(--tab-hover); }
+.v-faces { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; margin-bottom: 14px; }
+.v-faces a { display: flex; flex-direction: column; align-items: center; gap: 6px; font-size: 13px; text-align: center; text-decoration: none; }
+.v-faces img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 50%; background: #0e1f3d; border: 2px solid #2a4370; }
+.v-faces a:hover img { border-color: var(--cyan); }
+.v-news { list-style: none; padding: 0 !important; }
+.v-news li { display: flex; gap: 12px; }
+.v-news time { flex: none; width: 74px; font-family: var(--mono); font-size: 12px; color: var(--muted); padding-top: 3px; }
+.v-spoil { background: var(--navy); color: #dbe6f7; border-radius: 18px; padding: 20px 24px; display: flex; flex-wrap: wrap; gap: 14px 24px; align-items: center; }
+.v-spoil h2 { margin: 0; font-family: "Outfit", var(--body); font-size: 20px; color: #ffffff; flex: none; }
+.v-spoil .reveal-wrap { flex: 1 1 360px; min-width: 0; min-height: 44px; }
+.v-spoil a { color: var(--cyan); }
+.v-cats { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
+.v-cats a { display: flex; align-items: center; gap: 10px; padding: 12px 14px; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; color: var(--navy); font-weight: 700; text-decoration: none; }
+.v-cats a:hover { border-color: var(--teal-2); }
+.v-cats svg { width: 26px; height: 26px; flex: none; color: var(--teal-2); }
+
+/* ---------- mapa da jornada ---------- */
+.mp-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; margin: 0 0 14px; }
+.mp-bar label { font-weight: 700; }
+.mp-bar select { font: inherit; font-size: 15px; padding: 8px 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--panel); color: var(--ink); min-height: 44px; }
+.mp-note { font-size: 14px; color: var(--muted); }
+.mp-wrap { overflow-x: auto; border-radius: 18px; background: var(--navy); }
+.mp-svg { display: block; width: 100%; min-width: 760px; height: auto; }
+.mp-stop { cursor: pointer; }
+.mp-stop:focus { outline: none; }
+.mp-stop:focus-visible .mp-ring, .mp-stop:hover .mp-ring { stroke: #ffffff; stroke-width: 3; }
+.mp-stop.sel .mp-ring { stroke: #ffd36b; stroke-width: 4; }
+.mp-legend { display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: 14px; color: var(--muted); margin: 10px 0 0; }
+.mp-legend span { display: inline-flex; align-items: center; gap: 6px; }
+.mp-legend i { display: inline-block; width: 22px; height: 0; border-top: 3px solid var(--cyan); }
+.mp-legend i.dash { border-top: 3px dashed #6c83ad; }
+.mp-card { margin-top: 18px; background: var(--panel); border: 1px solid var(--line); border-radius: 18px; padding: 20px 22px; }
+.mp-card h2 { margin: 0 0 4px; font-family: "Outfit", var(--body); font-size: 24px; font-weight: 800; color: var(--navy); }
+.mp-card .mp-when { margin: 0 0 10px; font-size: 14px; color: var(--muted); }
+.mp-card p { margin: 0 0 10px; }
+.mp-who { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 10px; }
+.mp-who a { font-size: 14px; padding: 3px 10px; border-radius: 999px; background: var(--teal-soft); text-decoration: none; }
+.mp-list { margin-top: 18px; display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 10px; counter-reset: st; }
+.mp-list button { text-align: left; font: inherit; font-size: 15px; padding: 10px 12px; border-radius: 12px; border: 1px solid var(--line); background: var(--panel); color: var(--ink); cursor: pointer; min-height: 44px; }
+.mp-list button:hover { border-color: var(--teal-2); }
+.mp-list button[disabled] { color: var(--muted); cursor: default; background: var(--soft); }
+.mp-list b { color: var(--teal-2); margin-right: 6px; }
+
+/* ---------- índices das abas ---------- */
+.idx h1 { font-family: var(--display); font-weight: 700; font-size: clamp(26px, 4vw, 36px); margin: 6px 0 6px; text-wrap: balance; }
+.idx > p { max-width: 70ch; color: var(--muted); margin: 0 0 18px; }
+.idx h2 { font-family: var(--display); font-weight: 700; font-size: 19px; margin: 26px 0 10px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 10px; }
+.tile { display: flex; flex-direction: column; gap: 2px; padding: 12px 14px; background: var(--panel); border: 1px solid var(--line); border-bottom-width: 3px; text-decoration: none; color: var(--ink); min-width: 0; }
+.tile:hover { border-color: var(--teal-2); }
+.tile b { font-size: 16px; line-height: 1.3; }
+.tile small { color: var(--muted); font-size: 13px; line-height: 1.35; overflow-wrap: anywhere; }
+.tile.has-img { position: relative; justify-content: flex-end; min-height: 150px; padding: 0; overflow: hidden; background: var(--navy); border: 0; border-bottom: 3px solid var(--teal-2); }
+.tile.has-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%; transition: transform .35s ease; }
+.tile.has-img .tile-txt { position: relative; display: flex; flex-direction: column; gap: 2px; padding: 44px 14px 12px; background: linear-gradient(to top, rgba(10,23,48,.94) 0%, rgba(10,23,48,.78) 50%, rgba(10,23,48,0) 100%); }
+.tile.has-img b { color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,.5); }
+.tile.has-img small { color: #d3e4f5; }
+.tile.has-img:hover { border-bottom-color: var(--cyan); }
+.tile.has-img:hover img { transform: scale(1.05); }
+.grid.big { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+.grid.big .tile.has-img { min-height: 190px; }
+.also { columns: 2 260px; padding-left: 20px; }
+
+/* ---------- verbete ---------- */
+.crumb { font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 6px 0 6px; }
+.crumb a { color: inherit; }
+article h1 { font-family: var(--display); font-weight: 700; font-size: clamp(28px, 4.6vw, 40px); line-height: 1.1; margin: 0 0 6px; text-wrap: balance; }
+.subtitle { color: var(--muted); margin: 0 0 12px; font-size: 17px; }
+.badges { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 22px; }
+.badge { font-family: var(--mono); font-size: 12px; padding: 3px 9px; border: 1px solid var(--line); color: var(--muted); }
+.badge.spoiler { border-color: var(--spark); color: var(--spark); background: var(--spark-soft); }
+.badge.canon { border-color: var(--teal); color: var(--teal); background: var(--teal-soft); }
+.content { font-size: 17px; }
+.pg { display: grid; grid-template-columns: minmax(0, 72ch) 300px; gap: 36px; align-items: start; }
+.pg-main { min-width: 0; }
+.pg-side { position: sticky; top: 16px; }
+.pg-side .infobox, .pg-side .pic { float: none; width: auto; margin: 0; }
+.pg-solo { max-width: 76ch; }
+.content h3.dc-h { font-size: 16px; margin: 20px 0 6px; color: var(--teal); }
+.content h3.dc-h small { font-family: var(--mono); font-size: 11px; color: var(--muted); font-weight: 500; margin-left: 4px; }
+.versoes { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 12px; margin: 0 0 18px; }
+.versoes figure { margin: 0; border: 1px solid var(--line); background: #14171f; border-radius: 6px; overflow: hidden; }
+.versoes img { display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; object-position: top; }
+.versoes figcaption { font-size: 13px; color: #d6dde2; padding: 7px 10px; line-height: 1.35; }
+.versoes a { display: block; }
+.content::after { content: ""; display: block; clear: both; }
+.content h2 { font-family: var(--display); font-weight: 700; font-size: 21px; margin: 34px 0 10px; padding-bottom: 6px; border-bottom: 1px solid var(--line); text-wrap: balance; }
+.content h3 { font-size: 18px; margin: 22px 0 6px; }
+.content p { margin: 0 0 14px; }
+.content ul { margin: 0 0 14px; padding-left: 22px; }
+.content li { margin-bottom: 4px; }
+.content dl { margin: 0 0 14px; }
+.content dt { font-weight: 700; margin-top: 8px; }
+.content dd { margin: 0 0 4px 18px; }
+.nolink { border-bottom: 1px dotted var(--muted); }
+a.cap { font-family: var(--mono); font-size: 11px; font-weight: 500; text-decoration: none; color: var(--teal); background: var(--teal-soft); padding: 1px 5px; margin-left: 3px; white-space: nowrap; vertical-align: 2px; }
+a.cap:hover { background: var(--teal); color: #ffffff; }
+a.cap.hqcap { color: var(--spark); background: var(--spark-soft); }
+a.cap.hqcap:hover { background: var(--spark); color: #ffffff; }
+.cap.dccap { font-family: var(--mono); font-size: 11px; font-weight: 500; text-decoration: none; color: #4e5bbd; background: #eceefb; padding: 1px 5px; margin-left: 3px; white-space: nowrap; vertical-align: 2px; }
+a.cap.dccap:hover { background: #4e5bbd; color: #ffffff; }
+ul.dc-list li { margin-bottom: 7px; }
+.badge.dc { background: #eceefb; color: #4e5bbd; }
+.src-note { font-size: 14px; color: var(--muted); margin: -4px 0 10px; }
+/* linha do tempo */
+.lt { position: relative; margin: 8px 0 0; padding-left: 28px; max-width: 860px; }
+.lt::before { content: ""; position: absolute; left: 9px; top: 6px; bottom: 6px; width: 3px; background: linear-gradient(var(--cyan), var(--teal-2)); border-radius: 2px; }
+.lt-era { position: relative; margin: 0 0 8px; padding-top: 18px; }
+.lt-era:first-child { padding-top: 0; }
+.lt-era > h2 { margin: 0; border: 0; padding: 0; font-size: 22px; }
+.lt-era > h2::before { content: ""; position: absolute; left: -27px; margin-top: 6px; width: 17px; height: 17px; border-radius: 50%; background: var(--navy); border: 3px solid var(--cyan); }
+.lt-when { display: inline-block; margin: 2px 0 10px; font-family: "JetBrains Mono", monospace; font-size: 12px; letter-spacing: .04em; text-transform: uppercase; color: var(--teal-2); }
+.lt-ev { position: relative; margin: 0 0 10px; padding: 10px 14px; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; line-height: 1.55; }
+.lt-ev::before { content: ""; position: absolute; left: -23px; top: 16px; width: 9px; height: 9px; border-radius: 50%; background: var(--teal-2); }
+.lt-ev.x { border-left: 4px solid var(--cyan); }
+.lt-ev.x::before { background: var(--cyan); width: 11px; height: 11px; left: -24px; }
+.lt-ev b.q { display: block; font-size: 13px; color: var(--teal); margin-bottom: 2px; }
+.lt-ev .cap { margin-left: 4px; }
+.lt-hidden { margin: 14px 0 0; padding: 12px 14px; border: 1px dashed var(--line); border-radius: 8px; color: var(--muted); font-size: 14px; }
+/* contribuir */
+.ct-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; margin: 16px 0 8px; }
+.ct-card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px; }
+.ct-card h2 { margin: 0 0 6px; border: 0; padding: 0; font-size: 19px; }
+.ct-card p { margin: 0 0 12px; }
+.ct-card.dark { background: var(--navy); color: #dbe6f6; border-color: var(--navy); }
+.ct-card.dark h2 { color: #fff; }
+.ct-btn { display: inline-block; padding: 11px 18px; border-radius: 999px; background: var(--teal-2); color: #fff !important; font-weight: 700; text-decoration: none; }
+.ct-btn:hover { background: var(--teal); }
+.ct-card.dark .ct-btn { background: #5865f2; }
+.ct-off { font-size: 14px; color: var(--muted); font-style: italic; }
+.ct-page { margin: 12px 0 0; padding: 12px 16px; background: #e3f4fb; border-left: 4px solid var(--cyan); border-radius: 6px; }
+.fix-bar { margin: 34px 0 0; padding: 12px 16px; border-top: 1px solid var(--line); font-size: 14px; color: var(--muted); }
+.covers { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 10px; margin: 0 0 22px; }
+.covers a { display: block; text-decoration: none; color: var(--ink); border: 1px solid var(--line); background: var(--soft); }
+.covers a:hover { border-color: var(--teal-2); }
+.covers img { display: block; width: 100%; aspect-ratio: 3 / 4; object-fit: cover; }
+.covers span { display: block; font-size: 13px; font-weight: 700; padding: 6px 8px; line-height: 1.3; }
+.covers small { display: block; font-weight: 400; color: var(--muted); }
+.legend { display: flex; flex-wrap: wrap; gap: 14px; font-size: 14px; color: var(--muted); margin: 0 0 18px; }
+.infobox { float: right; width: 300px; margin: 0 0 18px 26px; background: var(--panel); border: 1px solid var(--line); font-size: 15px; }
+.ib-name { font-family: var(--display); font-weight: 700; font-size: 16px; padding: 12px 14px; background: var(--teal); color: #ffffff; }
+.infobox dl { margin: 0; padding: 4px 14px 10px; }
+.ib-row { padding: 8px 0; border-bottom: 1px solid var(--line); }
+.ib-row:last-child { border-bottom: 0; }
+.infobox dt { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 2px; font-weight: 500; }
+.infobox dd { margin: 0; line-height: 1.45; }
+.tablewrap { overflow-x: auto; margin: 0 0 16px; border: 1px solid var(--line); clear: both; }
+table { border-collapse: collapse; width: 100%; font-size: 15px; font-variant-numeric: tabular-nums; }
+th, td { text-align: left; padding: 8px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-family: var(--mono); font-weight: 500; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); background: var(--soft); }
+tr:last-child td { border-bottom: 0; }
+.chapnav { clear: both; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-top: 36px; padding-top: 16px; border-top: 1px solid var(--line); font-weight: 700; }
+
+/* ---------- falas em balão ---------- */
+.balloons { clear: both; display: flex; flex-direction: column; gap: 22px; margin: 6px 0 18px; }
+.balloon { margin: 0; max-width: 34em; }
+.balloon:nth-child(even) { align-self: flex-end; text-align: right; }
+.balloon blockquote { position: relative; margin: 0; padding: 14px 20px; background: var(--balloon); color: var(--balloon-ink); border: 2.5px solid var(--balloon-ink); border-radius: 26px; font-family: var(--comic); font-weight: 700; font-size: 16px; line-height: 1.35; text-transform: uppercase; letter-spacing: 0.02em; text-align: left; box-shadow: 3px 3px 0 var(--line); }
+.balloon blockquote::before, .balloon blockquote::after { content: ""; position: absolute; width: 0; height: 0; border-style: solid; }
+.balloon blockquote::before { left: 34px; bottom: -17px; border-width: 17px 14px 0 0; border-color: var(--balloon-ink) transparent transparent transparent; }
+.balloon blockquote::after { left: 37px; bottom: -11px; border-width: 12px 9px 0 0; border-color: var(--balloon) transparent transparent transparent; }
+.balloon:nth-child(even) blockquote::before { left: auto; right: 34px; border-width: 17px 0 0 14px; }
+.balloon:nth-child(even) blockquote::after { left: auto; right: 37px; border-width: 12px 0 0 9px; }
+.balloon figcaption { margin-top: 14px; padding: 0 24px; font-size: 14px; color: var(--muted); }
+
+/* ---------- imagens ---------- */
+.logo-big .lb-sw img { display: block; width: 100%; height: auto; }
+.ib-img { margin: 0; border-bottom: 1px solid var(--line); background: var(--soft); }
+.ib-img img { display: block; width: 100%; height: auto; }
+.ib-img figcaption, .pic figcaption, .gallery figcaption { font-size: 13px; color: var(--muted); padding: 6px 10px; line-height: 1.4; }
+.pic { float: right; width: 300px; max-width: 100%; margin: 0 0 18px 26px; border: 1px solid var(--line); background: var(--soft); }
+.pic img { display: block; width: 100%; height: auto; }
+.gallery { clear: both; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; margin: 0 0 18px; }
+.gallery figure { margin: 0; border: 1px solid var(--line); background: var(--soft); }
+.gallery img { display: block; width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: top; }
+.gallery a, .pic a, .ib-img a { display: block; }
+.cat .art img { width: 56px; height: 56px; object-fit: contain; }
+.readbar { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 22px; }
+.readbar a, .readbar span { display: inline-block; font-weight: 700; font-size: 15px; padding: 9px 16px; text-decoration: none; }
+.readbar .hq { background: var(--teal); color: #ffffff; }
+.readbar .nv { background: var(--ink); color: #ffffff; }
+.readbar span { background: var(--tab); color: var(--muted); font-weight: 400; }
+.curio h2, .curio h3 { font-family: var(--display); }
+.curio h2 { font-size: 21px; margin: 30px 0 10px; padding-bottom: 6px; border-bottom: 1px solid var(--line); }
+.curio h3 { font-size: 16px; margin: 18px 0 6px; }
+.curio h3 a { color: inherit; text-decoration: none; }
+.curio ul { margin: 0 0 8px; padding-left: 22px; max-width: 76ch; }
+.curio li { margin-bottom: 6px; }
+
+/* ---------- busca ---------- */
+.results { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; max-width: 76ch; }
+.results a { display: block; padding: 12px 14px; background: var(--panel); border: 1px solid var(--line); text-decoration: none; color: var(--ink); }
+.results a:hover { border-color: var(--teal-2); }
+.results small { display: block; color: var(--muted); font-size: 14px; margin-top: 2px; }
+mark { background: var(--teal-soft); color: inherit; padding: 0 2px; }
+
+footer { background: var(--navy); }
+footer a { color: var(--cyan); }
+footer .wrap { padding-block: 18px 26px; font-size: 14px; color: #b7c6df; }
+
+@media (max-width: 1020px) {
+  .home { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-areas: "logo facts" "new spoil" "eds eds" "cats cats"; }
+  .side { display: contents; }
+  .box.b-logo { grid-area: logo; } .box.b-facts { grid-area: facts; }
+}
+@media (max-width: 1000px) {
+  .pg { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .pg-side { position: static; order: -1; max-width: 420px; }
+}
+@media (max-width: 860px) {
+  .tabs ul { flex-wrap: nowrap; overflow-x: auto; gap: 20px; }
+  .tabs li { flex: none; }
+  .brand img { display: none; }
+}
+@media (max-width: 700px) {
+  .home { grid-template-columns: minmax(0, 1fr); grid-template-areas: "logo" "new" "spoil" "eds" "cats" "facts"; }
+  .logo-big .lb-bunyy { font-size: 56px; }
+  .eds { grid-template-columns: minmax(0, 1fr); }
+  .feat { min-height: 240px; }
+  .infobox, .pic { float: none; width: 100%; margin: 0 0 20px; }
+  .pg-side .infobox, .pg-side .pic { margin: 0 0 20px; }
+  .content { font-size: 16px; }
+  .brand i { display: none; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .tile, .results a, .tabs a, .cat, .chips a { transition: border-color .15s, background-color .15s; }
+}
+</style>
+<!--HEAD-END-->
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#inicio" aria-label="Bunyy Wiki, página inicial"><img src="imagens/espada.png" alt=""><b>BUNYY</b><i>WIKI</i></a>
+    <div class="search" role="search">
+      <label for="q" hidden>Buscar na wiki</label>
+      <input id="q" type="search" placeholder="Pesquisar na Bunyy Wiki" autocomplete="off">
+    </div>
+  </div>
+</header>
+<div class="tabs-band"><nav class="wrap tabs" aria-label="Seções">
+  <ul id="tabs"></ul>
+</nav></div>
+<main class="wrap" id="main" tabindex="-1"></main>
+<footer>
+  <div class="wrap">
+    Site de fãs, não oficial. BUNYY é uma obra de Toom, publicada gratuitamente na <a href="https://fliptru.com.br/comic/bunyy" target="_blank" rel="noopener">Fliptru</a>. Os resumos cobrem os capítulos 1 a 10 e trazem spoilers. Achou um erro? <a href="#contribuir">Contribua</a>.
+  </div>
+</footer>
+<script>
+(function () {
+  var DATA = /*__DATA__*/null;
+  var pages = DATA.pages, bySlug = {}, groups = {};
+  pages.forEach(function (p) { bySlug[p.s] = p; (groups[p.g] = groups[p.g] || []).push(p); });
+  var main = document.getElementById("main"), q = document.getElementById("q");
+  var CFG = DATA.config || {};
+  function cfg(path) { var o = CFG; path.split(".").forEach(function (k) { o = o && o[k]; }); return o || ""; }
+  function pageImg(s) { return (CFG.paginas && CFG.paginas[s]) || {}; }
+
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+  function cap(n) { return '<a class="cap" href="#capitulo-' + n + '">cap.&nbsp;' + n + "</a>"; }
+  function L(s, t) { return '<a href="#' + s + '">' + esc(t || (bySlug[s] ? bySlug[s].t : s)) + "</a>"; }
+
+  // ---------- ícones ----------
+  var I = {
+    sword: '<path d="M4 20l3-1 10-10-2-2L5 17l-1 3zM15 7l2 2 3-3-2-2zM6 15l3 3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>',
+    rabbit: '<path d="M9 3c-1.5 2-1.5 5 0 7M15 3c1.5 2 1.5 5 0 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><ellipse cx="12" cy="15" rx="6" ry="5.5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="10" cy="14.5" r="1" fill="currentColor"/><circle cx="14" cy="14.5" r="1" fill="currentColor"/>',
+    mask: '<path d="M4 6c3-1.5 13-1.5 16 0 0 7-3 13-8 13S4 13 4 6z" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8 11l2 1M16 11l-2 1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M9 15.5c2 1.5 4 1.5 6 0" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>',
+    eye: '<path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="3.2" fill="currentColor"/>',
+    tree: '<path d="M12 21v-7M12 14l-4-4M12 14l4-3M12 3c-4 0-7 3-7 6s3 4 7 4 7-1 7-4-3-6-7-6z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>',
+    ship: '<path d="M3 16h18l-3 4H6l-3-4zM12 3v13M12 4l6 9h-6M12 6l-5 7h5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>',
+    flame: '<path d="M12 21c-4 0-6-3-6-6 0-4 4-6 4-10 3 2 5 5 5 8 1-1 1-2 1-3 2 2 2 4 2 5 0 3-2 6-6 6z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>',
+    book: '<path d="M4 5c3-1 6-1 8 1 2-2 5-2 8-1v14c-3-1-6-1-8 1-2-2-5-2-8-1V5zM12 6v14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>',
+    pin: '<path d="M12 21s-6-6-6-11a6 6 0 1112 0c0 5-6 11-6 11z" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="10" r="2.2" fill="currentColor"/>',
+    claw: '<path d="M6 20c0-7 2-12 6-16M10 20c0-6 2-10 5-13M14 20c0-5 2-8 5-10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>',
+    vial: '<path d="M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M7.5 15h9" stroke="currentColor" stroke-width="1.8"/>',
+    question: '<circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M9.5 9.5a2.5 2.5 0 114 2c-1 .7-1.5 1.2-1.5 2.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="17" r="1.1" fill="currentColor"/>',
+    stone: '<path d="M12 3l7 5-2 11H7L5 8z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 10c1 2 4 2 6 0" fill="none" stroke="currentColor" stroke-width="1.8"/>',
+    group: '<circle cx="8" cy="9" r="3" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="9" r="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3 20c0-3 2-5 5-5s5 2 5 5M11 20c0-3 2-5 5-5s5 2 5 5" fill="none" stroke="currentColor" stroke-width="1.8"/>',
+    play: '<rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M10 9l5 3-5 3z" fill="currentColor"/>'
+  };
+  function icon(k) { return '<svg viewBox="0 0 24 24" aria-hidden="true">' + I[k] + "</svg>"; }
+
+  // ---------- abas ----------
+  var TABS = [
+    { k: "hq-e-novel", t: "HQ e Novel" }, { k: "linha-do-tempo", t: "Linha do tempo" }, { k: "curiosidades", t: "Curiosidades" }, { k: "personagens", t: "Personagens" },
+    { k: "lugares", t: "Lugares" }, { k: "o-mundo", t: "O Mundo" }, { k: "grupos", t: "Grupos" }, { k: "criaturas", t: "Bestas e criaturas" }, { k: "mapa", t: "Mapa da jornada" }, { k: "contribuir", t: "Contribua" }
+  ];
+  document.getElementById("tabs").innerHTML = TABS.map(function (t) {
+    return '<li><a href="#' + t.k + '" data-k="' + t.k + '">' + t.t + "</a></li>";
+  }).join("");
+  function tabOf(p) {
+    if (!p) return null;
+    if (p.s === "bestas" || p.g === "Criaturas") return "criaturas";
+    return { "Personagens": "personagens", "Lugares": "lugares", "Conceitos": "o-mundo",
+      "Sobre": "o-mundo", "Grupos": "grupos", "Capítulos": "hq-e-novel" }[p.g] || null;
+  }
+
+  // imagem do cartão: "Imagem do cartão" > primeira de "Outras versões" > imagem principal
+  function cardImg(p) {
+    var im = pageImg(p.s);
+    return im.card || (im.versoes && im.versoes[0] && im.versoes[0].arquivo) || im.foto || "";
+  }
+  function tiles(list, cls) {
+    return '<div class="grid' + (cls ? " " + cls : "") + '">' + list.map(function (p) {
+      if (!p) return "";
+      var src = cardImg(p), txt = "<b>" + esc(p.t) + "</b>" + (p.sub ? "<small>" + esc(p.sub) + "</small>" : "");
+      if (!src) return '<a class="tile" href="#' + p.s + '">' + txt + "</a>";
+      return '<a class="tile has-img" href="#' + p.s + '"><img src="' + esc(src) + '" alt="" loading="lazy"><span class="tile-txt">' + txt + "</span></a>";
+    }).join("") + "</div>";
+  }
+  function pick(slugs) { return slugs.map(function (s) { return bySlug[s]; }); }
+
+  // ---------- você sabia ----------
+  var FACTS = (DATA.inicio && DATA.inicio.fatos) || [];
+  var factStart = 0;
+  function factsHtml() {
+    var out = [];
+    for (var i = 0; i < 3; i++) out.push("<li>" + FACTS[(factStart + i) % FACTS.length] + "</li>");
+    return out.join("");
+  }
+
+  var SWORD = '<svg viewBox="0 0 320 44" aria-hidden="true"><path d="M6 22 L30 12 H226 V32 H30 Z" fill="#f4f6f7" stroke="#22292e" stroke-width="2.5" stroke-linejoin="round"/><path d="M34 22 H222" stroke="#22292e" stroke-width="1.6"/><path d="M226 6 C238 14 238 30 226 38 C244 36 252 28 252 22 C252 16 244 8 226 6 Z" fill="#f4f6f7" stroke="#22292e" stroke-width="2.5"/><ellipse cx="241" cy="22" rx="8" ry="5" fill="#22292e"/><ellipse cx="241" cy="22" rx="3" ry="2" fill="#ffffff"/><path d="M252 19 H300 M252 25 H300" stroke="#22292e" stroke-width="2.5"/><path d="M252 19 H300 V25 H252" fill="#f4f6f7"/><path d="M300 14 L314 22 L300 30 L306 22 Z" fill="#f4f6f7" stroke="#22292e" stroke-width="2.5" stroke-linejoin="round"/></svg>';
+
+  function sword() {
+    var src = cfg("logo_espada");
+    return src ? '<img src="' + esc(src) + '" alt="">' : SWORD;
+  }
+  function featStyle(k) {
+    var src = cfg("destaques." + k);
+    return src ? ' has-img" style="--img:url(\'' + esc(src) + '\')' : "";
+  }
+
+  var NEWS = (DATA.inicio && DATA.inicio.novidades) || [];
+  function home() {
+    var nChars = (groups["Personagens"] || []).length;
+    var INI = DATA.inicio || {}, hero = INI.destaque_imagem || "";
+    var h = '<div class="v-home">';
+    h += '<section class="v-hero"><div class="v-hero-txt"><p class="v-eyebrow">A enciclopédia de BUNYY</p>' +
+      "<h1>" + esc(INI.titulo || "") + "</h1>" +
+      '<p class="lead">' + esc(INI.chamada || "") + "</p>" +
+      '<p class="v-stats"><span><b>' + pages.length + "</b> páginas</span><span><b>" + nChars + "</b> personagens</span><span><b>" + DATA.hq.length + "</b> capítulos</span></p>" +
+      '<div class="v-btns"><a class="v-btn" href="#capitulo-1">Começar pelo capítulo 1</a><a class="v-btn ghost" href="#personagens">Ver personagens</a></div></div>' +
+      (hero ? '<img class="v-hero-img" src="' + esc(hero) + '" alt="' + esc(INI.destaque_legenda || "") + '">' : "") + "</section>";
+    // estante de capas
+    var last = DATA.hq[DATA.hq.length - 1].n;
+    h += '<section><div class="v-head"><h2>Capítulos da HQ</h2><a href="#hq-e-novel">Ver todos e a ordem com a novel</a></div><div class="v-shelf">' +
+      DATA.hq.map(function (c) {
+        var src = cfg("capas_hq." + c.n);
+        return '<a href="https://fliptru.com.br/comic/bunyy/' + ("00" + c.n).slice(-3) + '" target="_blank" rel="noopener">' + (c.n === last ? '<span class="v-new">Novo</span>' : "") +
+          (src ? '<img src="' + esc(src) + '" alt="" loading="lazy">' : "") + "<b>" + c.n + " · " + esc(c.t) + "</b><small>Ler na Fliptru</small></a>";
+      }).join("") + "</div></section>";
+    // cartões
+    var faces = pages.filter(function (p) { return p.lado === "Ordem do Fogo"; }).slice(0, 5).map(function (p) {
+      var im = pageImg(p.s), v = (im.versoes && im.versoes[0] && im.versoes[0].arquivo) || im.foto || "";
+      return '<a href="#' + p.s + '"><img src="' + esc(v) + '" alt="" loading="lazy">' + esc(p.curto || p.t) + "</a>";
+    }).join("");
+    h += '<div class="v-cards">' +
+      '<section class="v-card"><h2>Você sabia…</h2><ul id="facts">' + factsHtml() + '</ul><button class="v-pill" id="moreFacts" type="button">Mais fatos</button> <a class="v-pill" href="#curiosidades">Todas as curiosidades</a></section>' +
+      '<section class="v-card"><h2>Novidades</h2><ul class="v-news">' + NEWS.map(function (n) {
+        return "<li><time>" + esc(n.data || "") + "</time><span>" + (n.pagina ? '<a href="#' + esc(n.pagina) + '">' + esc(n.texto) + "</a>" : esc(n.texto)) + "</span></li>";
+      }).join("") + '</ul><a class="v-pill" href="https://youtube.com/@bunyyoficial" target="_blank" rel="noopener">Canal no YouTube</a></section>' +
+      '<section class="v-card dark"><h2>Ordem do Fogo</h2><div class="v-faces">' + faces + '</div><a href="#personagens">Todos os ' + nChars + " personagens</a></section></div>";
+    // spoiler
+    var SP = INI.spoiler;
+    if (SP && SP.texto) h += '<section class="v-spoil"><h2>' + esc(SP.titulo || "Spoiler") + '</h2><div class="reveal-wrap"><div class="feat-body blurred" id="spoilText" style="max-width:none">' + esc(SP.texto) + '</div>' +
+      '<button class="reveal" id="reveal" type="button">Mostrar spoiler</button></div><div class="chips" id="spoilChips" hidden style="margin:0">' +
+      (SP.paginas || []).map(function (s) { return bySlug[s] ? '<a href="#' + s + '">' + esc(bySlug[s].t) + "</a>" : ""; }).join("") + "</div></section>";
+    // explorar
+    var CATS = [["personagens", "Personagens", "rabbit"], ["ordem-do-fogo", "Ordem do Fogo", "group"], ["sombras", "Sombras", "mask"],
+      ["lucendi", "Lucendi", "eye"], ["magia", "Magia", "flame"], ["armas-matriz", "Armas matriz", "sword"],
+      ["criaturas", "Bestas e criaturas", "claw"], ["nano-alteradores", "Nano-alteradores", "vial"], ["dominio-sombrio", "Domínio Sombrio", "tree"],
+      ["jolly-roger-iii", "Jolly Roger III", "ship"], ["lugares", "Lugares", "pin"], ["mapa", "Mapa da jornada", "pin"], ["linha-do-tempo", "Linha do tempo", "play"], ["contribuir", "Contribua", "group"], ["curiosidades", "Curiosidades", "question"]];
+    h += '<section><div class="v-head"><h2>Explorar o mundo</h2></div><div class="v-cats">' + CATS.map(function (c) {
+      return '<a href="#' + c[0] + '">' + icon(c[2]) + c[1] + "</a>";
+    }).join("") + "</div></section>";
+    return h + "</div>";
+  }
+
+  // ---------- índices das abas ----------
+  // ---------- mapa da jornada ----------
+  // Rota baseada na leitura da comunidade (direções e caminhos), não em mapa oficial.
+  var MAPA = DATA.mapa || { paradas: [], rotas_viloes: [] };
+  var STOPS = MAPA.paradas.map(function (p) { return { id: p.id, n: p.nome, x: p.x, y: p.y, nv: p.novel, hq: p.onde_ler || "", pg: p.pagina || "", who: p.quem || [], d: p.texto || "", goal: !!p.destino, grupo: p.grupo_passa !== false && !p.destino }; });
+  var VIL = (MAPA.rotas_viloes || []).map(function (v) { return [v.de, v.para, v.novel, v.legenda, v.curva_x, v.curva_y, v.legenda_x, v.legenda_y]; });
+  var DUEL = MAPA.duelo || { nv: 999 };
+  if (DUEL.novel) DUEL = { x: DUEL.x, y: DUEL.y, nv: DUEL.novel, n: DUEL.nome, de: DUEL.de };
+  var GROUP4 = MAPA.grupo || [];
+  function whereAt(c, nv) {
+    var dest = STOPS.filter(function (s) { return s.goal; })[0];
+    if (MAPA.capturado && c === MAPA.capturado.personagem && nv >= MAPA.capturado.novel) return dest ? dest.id : null;
+    if (MAPA.reforco && c === MAPA.reforco.personagem && nv < MAPA.reforco.novel) return null;
+    var cur = null;
+    STOPS.forEach(function (s) { if (s.grupo && s.nv <= nv) cur = s.id; });
+    return cur;
+  }
+  var mapNv = (DATA.novel && DATA.novel.length) ? DATA.novel[DATA.novel.length - 1].n : 1, mapSel = null;
+  function stopById(id) { return STOPS.filter(function (s) { return s.id === id; })[0]; }
+  function face(c) { var im = pageImg(c); return (im.versoes && im.versoes[0] && im.versoes[0].arquivo) || im.foto || ""; }
+  function mapSvg() {
+    var route = STOPS.filter(function (s) { return !s.goal; });
+    var reached = route.filter(function (s) { return s.nv <= mapNv; });
+    var pts = function (arr) { return arr.map(function (s) { return s.x + "," + s.y; }).join(" "); };
+    var g = '<svg class="mp-svg" viewBox="0 0 1000 620" role="img" aria-label="Mapa ilustrativo da jornada da Ordem do Fogo">';
+    g += '<defs><pattern id="mpt" width="22" height="22" patternUnits="userSpaceOnUse"><path d="M11 4 L16 15 H6 Z" fill="#16413a"/></pattern>' +
+      '<marker id="mpa" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#c084fc"/></marker></defs>';
+    g += '<g transform="translate(1000,0) scale(-1,1)">';
+    // mar e terra
+    g += '<rect width="1000" height="620" fill="#0d2a52"/>';
+    g += '<path d="M200 0 H1000 V620 H520 C470 560 440 530 380 520 C330 512 300 480 270 470 C220 455 200 420 210 380 C220 330 180 300 200 250 C215 200 190 120 200 0 Z" fill="#0a1d2e" stroke="#2a5a6a" stroke-width="2"/>';
+    g += '<path d="M200 0 H1000 V620 H520 C470 560 440 530 380 520 C330 512 300 480 270 470 C220 455 200 420 210 380 C220 330 180 300 200 250 C215 200 190 120 200 0 Z" fill="url(#mpt)"/>';
+    // ilha do Domínio
+    g += '<ellipse cx="75" cy="300" rx="55" ry="40" fill="#1b1030" stroke="#7c4aa0" stroke-width="2"/>';
+    // ravina e montanha
+    g += '<path d="M590 360 C620 375 650 372 700 392 C740 405 780 400 820 420" fill="none" stroke="#000" stroke-width="10" stroke-linecap="round" opacity="0.65"/>';
+    g += '<path d="M470 470 L520 395 L560 440 L590 405 L630 475 Z" fill="#203a46" stroke="#4f7f8f" stroke-width="2"/>';
+    // cidade murada
+    g += '<polygon points="640,212 677,233 677,277 640,298 603,277 603,233" fill="#13264a" stroke="#4fd3f2" stroke-width="2.5"/>';
+    g += '</g>';
+    // textos do cenário
+    g += '<text x="140" y="300" text-anchor="middle" font-size="14" fill="#6fa58f" font-style="italic">Floresta dos Pinheiros Negros</text>';
+    g += '<text x="890" y="160" text-anchor="middle" font-size="14" fill="#7f9cc9" font-style="italic">mar</text>';
+    g += '<text x="235" y="425" font-size="12" fill="#8aa4b8" font-style="italic">ravina</text>';
+    g += '<text x="455" y="490" text-anchor="middle" font-size="12" fill="#8aa4b8" font-style="italic">montanha</text>';
+    // rosa dos ventos
+    g += '<g transform="translate(60,60)"><circle r="26" fill="#0a1730" stroke="#3b5584"/><path d="M0 -20 L6 0 L0 20 L-6 0 Z" fill="#4fd3f2"/><path d="M0 0 L6 0 L0 20 L-6 0 Z" fill="#3b5584"/><text y="-30" text-anchor="middle" font-size="13" font-weight="700" fill="#e6eefb">N</text></g>';
+    // rotas dos vilões
+    VIL.forEach(function (v) {
+      if (v[2] > mapNv) return;
+      var a = stopById(v[0]), b = stopById(v[1]);
+      g += '<path d="M' + a.x + " " + a.y + " Q" + v[4] + " " + v[5] + " " + (b.x - 34) + " " + (b.y + 8) + '" fill="none" stroke="#c084fc" stroke-width="2" stroke-dasharray="5 6" marker-end="url(#mpa)" opacity="0.85"/>';
+      g += '<text x="' + v[6] + '" y="' + v[7] + '" text-anchor="middle" font-size="12" fill="#d8b4fe" paint-order="stroke" stroke="#0a1730" stroke-width="4">' + esc(v[3]) + "</text>";
+    });
+    // trilha do grupo
+    g += '<polyline points="' + pts(route) + '" fill="none" stroke="#3b5584" stroke-width="3" stroke-dasharray="8 8"/>';
+    if (reached.length > 1) g += '<polyline points="' + pts(reached) + '" fill="none" stroke="#4fd3f2" stroke-width="4" stroke-linejoin="round"/>';
+    var last = route[route.length - 1], dom = STOPS[STOPS.length - 1];
+    g += '<line x1="' + last.x + '" y1="' + last.y + '" x2="' + (dom.x - 20) + '" y2="' + (dom.y + 30) + '" stroke="#4fd3f2" stroke-width="2" stroke-dasharray="3 7" opacity="0.7"/>';
+    if (DUEL.nv <= mapNv) {
+      var at = stopById(DUEL.de) || STOPS[0];
+      g += '<path d="M' + at.x + " " + at.y + " Q" + (DUEL.x + 60) + " " + (DUEL.y + 80) + " " + DUEL.x + " " + DUEL.y + '" fill="none" stroke="#ffb347" stroke-width="2" stroke-dasharray="4 5"/>' +
+        '<g transform="translate(' + DUEL.x + "," + DUEL.y + ')"><path d="M0 -12 L4 -3 L13 -3 L6 3 L9 12 L0 7 L-9 12 L-6 3 L-13 -3 L-4 -3 Z" fill="#ffb347"/></g>' +
+        '<text x="' + DUEL.x + '" y="' + (DUEL.y - 18) + '" text-anchor="middle" font-size="12" fill="#ffd9a3" paint-order="stroke" stroke="#0a1730" stroke-width="4">' + DUEL.n + "</text>";
+    }
+    // paradas
+    STOPS.forEach(function (s, i) {
+      var on = s.nv <= mapNv, label = on ? s.n : "???", r = s.goal ? 22 : 17;
+      g += '<g class="mp-stop' + (on && mapSel === s.id ? " sel" : "") + '" data-id="' + s.id + '" tabindex="' + (on ? 0 : -1) + '" role="button" aria-label="' + esc(label) + '">' +
+        '<circle class="mp-ring" cx="' + s.x + '" cy="' + s.y + '" r="' + r + '" fill="' + (s.goal ? "#3a1450" : on ? "#4fd3f2" : "#1d3360") + '" stroke="' + (s.goal ? "#c084fc" : "#0a1730") + '" stroke-width="3"/>' +
+        '<text x="' + s.x + '" y="' + (s.y + 5) + '" text-anchor="middle" font-size="14" font-weight="700" fill="' + (s.goal ? "#f0d9ff" : on ? "#0a1730" : "#7f9cc9") + '">' + (s.goal ? "★" : i + 1) + "</text>" +
+        '<text x="' + s.x + '" y="' + (s.y + r + 19) + '" text-anchor="middle" font-size="14" font-weight="700" fill="' + (on ? "#e6eefb" : "#5d76a3") + '" paint-order="stroke" stroke="#0a1730" stroke-width="4">' + esc(label) + "</text></g>";
+    });
+    // rostos
+    var spots = {};
+    GROUP4.concat([MAPA.capturado && MAPA.capturado.personagem, MAPA.reforco && MAPA.reforco.personagem].filter(Boolean)).forEach(function (c) { var w = whereAt(c, mapNv); if (w) (spots[w] = spots[w] || []).push(c); });
+    Object.keys(spots).forEach(function (w) {
+      var st = stopById(w), list = spots[w], n = list.length;
+      list.forEach(function (c, k) {
+        var cx = st.x + (k - (n - 1) / 2) * 34, cy = st.y - (st.goal ? 54 : 48);
+        var src = face(c), nm = bySlug[c] ? bySlug[c].t : c;
+        g += '<a href="#' + c + '" aria-label="' + esc(nm) + '"><title>' + esc(nm) + "</title>" +
+          '<circle cx="' + cx + '" cy="' + cy + '" r="17" fill="#0a1730" stroke="#ffd36b" stroke-width="2"/>' +
+          (src ? '<clipPath id="mpf-' + c + '"><circle cx="' + cx + '" cy="' + cy + '" r="15"/></clipPath><image href="' + esc(src) + '" x="' + (cx - 15) + '" y="' + (cy - 15) + '" width="30" height="30" preserveAspectRatio="xMidYMid slice" clip-path="url(#mpf-' + c + ')"/>' : "") + "</a>";
+      });
+    });
+    return g + "</svg>";
+  }
+  function mapCard() {
+    var s = mapSel && stopById(mapSel);
+    if (!s || s.nv > mapNv) return '<div class="mp-card"><h2>Escolha uma parada</h2><p class="mp-when">Clique num ponto do mapa ou na lista abaixo para ver o que aconteceu lá.</p></div>';
+    return '<div class="mp-card"><h2>' + esc(s.n) + '</h2><p class="mp-when">' + esc(s.hq) + " · a partir da novel, cap. " + s.nv + "</p><p>" + esc(s.d) + "</p>" +
+      (s.who.length ? '<div class="mp-who">' + s.who.map(function (c) { return L(c, bySlug[c] ? bySlug[c].t : c); }).join("") + "</div>" : "") +
+      '<p style="margin:0">' + L(s.pg, "Ver a página do lugar") + "</p></div>";
+  }
+  function mapList() {
+    return '<div class="mp-list">' + STOPS.map(function (s, i) {
+      var on = s.nv <= mapNv;
+      return '<button type="button" data-id="' + s.id + '"' + (on ? "" : " disabled") + "><b>" + (s.goal ? "★" : i + 1) + "</b>" + (on ? esc(s.n) : "??? (spoiler)") + "</button>";
+    }).join("") + "</div>";
+  }
+  function mapBody() { return '<div class="mp-wrap">' + mapSvg() + "</div>" +
+    '<p class="mp-legend"><span><i></i>caminho do grupo</span><span><i class="dash"></i>ainda pela frente</span><span><i style="border-top:3px dashed #c084fc"></i>vilões</span><span>★ destino</span><span>rostos: onde cada um está nesse ponto da história</span></p>' + mapCard() + mapList(); }
+  function wireMap() {
+    var box = document.getElementById("mpBody"), sel = document.getElementById("mpNv");
+    if (!box) return;
+    function redraw() { box.innerHTML = mapBody(); }
+    sel.addEventListener("change", function () { mapNv = +sel.value; redraw(); });
+    box.addEventListener("click", function (e) {
+      var t = e.target.closest("[data-id]"); if (!t || t.disabled) return;
+      var st = stopById(t.getAttribute("data-id")); if (st.nv > mapNv) return;
+      mapSel = st.id; redraw();
+    });
+    box.addEventListener("keydown", function (e) {
+      if (e.key !== "Enter" && e.key !== " ") return;
+      var t = e.target.closest(".mp-stop"); if (!t) return;
+      e.preventDefault(); var st = stopById(t.getAttribute("data-id")); if (st.nv > mapNv) return; mapSel = st.id; redraw();
+    });
+  }
+
+  // ---------- linha do tempo ----------
+  var LINHA = DATA.linha || { epocas: [] };
+  var ltNv = DATA.novel.length ? DATA.novel[DATA.novel.length - 1].n : 99;
+  try { var sv = parseInt(localStorage.getItem("bunyy-li-ate"), 10); if (sv) ltNv = sv; } catch (e) {}
+  function linhaBody() {
+    var h = '<div class="lt">', hidden = 0;
+    LINHA.epocas.forEach(function (ep) {
+      var evs = ep.ev.filter(function (e) { if (e.nv > ltNv) { hidden++; return false; } return true; });
+      if (!evs.length) return;
+      h += '<section class="lt-era"><h2>' + esc(ep.t) + "</h2>" + (ep.q ? '<span class="lt-when">' + esc(ep.q) + "</span>" : "");
+      evs.forEach(function (e) {
+        h += '<div class="lt-ev' + (e.x ? " x" : "") + '">' + (e.q ? '<b class="q">' + esc(e.q) + "</b>" : "") + e.h +
+          (e.nv ? " " + cap(e.nv) : "") + (e.dc ? ' <span class="cap dccap" title="Dito pelo Toom no Discord">Discord</span>' : "") + "</div>";
+      });
+      h += "</section>";
+    });
+    h += "</div>";
+    if (hidden) h += '<p class="lt-hidden">' + hidden + (hidden === 1 ? " evento escondido" : " eventos escondidos") + " para não dar spoiler. Mude o “Li até” para ver.</p>";
+    return h;
+  }
+  function wireLinha() {
+    var sel = document.getElementById("ltNv");
+    if (sel) sel.addEventListener("change", function () {
+      ltNv = parseInt(sel.value, 10);
+      try { localStorage.setItem("bunyy-li-ate", String(ltNv)); } catch (e) {}
+      document.getElementById("ltBody").innerHTML = linhaBody();
+    });
+  }
+
+  // ---------- contribua ----------
+  var COM = (DATA.inicio && DATA.inicio.comunidade) || {};
+  function formLink(slug) {
+    var u = COM.formulario || "";
+    if (u && slug && COM.formulario_campo_pagina) {
+      var pg = bySlug[slug] ? bySlug[slug].t : slug;
+      u += (u.indexOf("?") >= 0 ? "&" : "?") + "usp=pp_url&" + encodeURIComponent(COM.formulario_campo_pagina) + "=" + encodeURIComponent(pg);
+    }
+    return u;
+  }
+  function contribuir(ctx) {
+    var pg = ctx && bySlug[ctx], h = "<h1>Contribua com a wiki</h1><p>A Bunyy Wiki é feita por fãs, e sempre tem algo para corrigir ou acrescentar: um nome errado, um detalhe que faltou, uma fala nova do Toom ou uma imagem melhor. Toda ajuda é bem-vinda.</p>";
+    if (pg) h += '<p class="ct-page">Você está falando da página <a href="#' + pg.s + '"><b>' + esc(pg.t) + "</b></a>. Cite o nome dela na sua mensagem.</p>";
+    var f = formLink(ctx);
+    h += '<div class="ct-grid"><section class="ct-card"><h2>Apontar um erro ou sugerir algo</h2><p>Leva um minuto e não precisa de conta. Diga em qual página está, o que mudar e, se puder, de onde veio a informação: capítulo, página da HQ ou link da mensagem no Discord.</p>' +
+      (f ? '<a class="ct-btn" href="' + esc(f) + '" target="_blank" rel="noopener">Abrir o formulário</a>' : '<p class="ct-off">O formulário ainda vai ser ligado. Enquanto isso, use o Discord.</p>') + "</section>";
+    h += '<section class="ct-card dark"><h2>Converse no Discord</h2><p>' + esc(COM.discord_texto || "Tire dúvidas e discuta teorias com outros fãs.") + "</p>" +
+      (COM.discord ? '<a class="ct-btn" href="' + esc(COM.discord) + '" target="_blank" rel="noopener">Entrar no Discord</a>' : '<p class="ct-off">Link do Discord em breve.</p>') + "</section>";
+    if (COM.github_issues) h += '<section class="ct-card"><h2>Tem conta no GitHub?</h2><p>Abra uma sugestão direto no repositório da wiki. Fica tudo registrado e dá para acompanhar a resposta.</p><a class="ct-btn" href="' + esc(COM.github_issues) + '" target="_blank" rel="noopener">Abrir sugestão</a></section>';
+    h += "</div>";
+    h += "<h2>Como ajudar mais</h2><ul><li><b>Imagens:</b> mande o print e diga o capítulo. Damos preferência às artes oficiais da HQ e da novel.</li><li><b>Falas do Toom:</b> cole o link da mensagem do Discord, que a data e a fonte entram junto.</li><li><b>Quer editar direto?</b> Peça acesso ao painel de edição. Quem cuida da wiki adiciona você como colaborador.</li><li><b>Fanart</b> só entra com o nome e a autorização de quem desenhou.</li></ul>";
+    return h;
+  }
+
+  function tabPage(k, ctx) {
+    var h = '<section class="idx">';
+    if (k === "linha-do-tempo") {
+      h += "<h1>Linha do tempo</h1><p>" + (LINHA.intro || "") + "</p>";
+      h += '<div class="mp-bar"><label for="ltNv">Li até</label><select id="ltNv">' + DATA.novel.map(function (c) {
+        var hq = c.hq.length ? "HQ " + c.hq.join(" e ") : "só na novel";
+        return '<option value="' + c.n + '"' + (c.n === ltNv ? " selected" : "") + ">Novel, cap. " + c.n + " (" + hq + ")</option>";
+      }).join("") + '</select><span class="mp-note">Os destaques têm borda azul.</span></div>';
+      h += '<div id="ltBody">' + linhaBody() + "</div>";
+    } else if (k === "contribuir") {
+      h += contribuir(ctx);
+    }
+    else if (k === "hq-e-novel") {
+      h += "<h1>HQ e Novel</h1><p>BUNYY é contada em duas versões. A HQ sai de graça na Fliptru, com classificação geral 16 anos. A novel, em texto, sai antes dos quadrinhos, por isso está alguns capítulos à frente. A numeração das duas é diferente: um capítulo da novel pode virar dois da HQ.</p>";
+      h += "<h2>HQ</h2>";
+      h += '<div class="covers">' + DATA.hq.map(function (c) {
+        var src = cfg("capas_hq." + c.n);
+        return '<a href="https://fliptru.com.br/comic/bunyy/' + ("00" + c.n).slice(-3) + '" target="_blank" rel="noopener">' + (src ? '<img src="' + esc(src) + '" alt="" loading="lazy">' : "") +
+          "<span>Cap. " + c.n + ": " + esc(c.t) + "<small>" + c.c + " · ler na Fliptru</small></span></a>";
+      }).join("") + "</div>";
+      h += '<div class="tablewrap"><table><thead><tr><th>Nº</th><th>Capítulo da HQ</th><th>Classif.</th><th>Ler</th><th>Na novel</th></tr></thead><tbody>' +
+        DATA.hq.map(function (c) {
+          return "<tr><td>" + ("00" + c.n).slice(-3) + "</td><td>" + esc(c.t) + "</td><td>" + c.c +
+            '</td><td><a href="https://fliptru.com.br/comic/bunyy/' + ("00" + c.n).slice(-3) + '" target="_blank" rel="noopener">Fliptru</a></td><td>' +
+            c.nv.map(function (n) { return L("capitulo-" + n, "Capítulo " + n); }).join(", ") + "</td></tr>";
+        }).join("") + "</tbody></table></div>";
+      h += "<h2>Novel</h2>";
+      h += '<div class="tablewrap"><table><thead><tr><th>Nº</th><th>Capítulo da novel</th><th>Ler</th><th>Na HQ</th><th>Resumo</th></tr></thead><tbody>' +
+        DATA.novel.map(function (c) {
+          var nv = cfg("novel." + c.n);
+          return "<tr><td>" + c.n + "</td><td>" + (c.t ? esc(c.t) : '<span style="color:var(--muted)">sem título</span>') + "</td><td>" +
+            (nv ? '<a href="' + esc(nv) + '" target="_blank" rel="noopener">Ler a novel</a>' : '<span style="color:var(--muted)">link em breve</span>') + "</td><td>" +
+            (c.hq.length ? c.hq.map(function (x) { return '<a href="https://fliptru.com.br/comic/bunyy/' + ("00" + x).slice(-3) + '" target="_blank" rel="noopener">Cap. ' + x + "</a>"; }).join(", ") : '<span style="color:var(--muted)">ainda não</span>') +
+            "</td><td>" + L("capitulo-" + c.n, "Resumo") + "</td></tr>";
+        }).join("") + "</tbody></table></div>";
+    } else if (k === "curiosidades") {
+      h += "<h1>Curiosidades</h1><p>Detalhes, piadas e contradições espalhados pelos capítulos. Cada item mostra de qual capítulo saiu.</p>";
+      h += '<p class="legend"><span><a class="cap" href="#hq-e-novel">cap. 3</a> capítulo da novel</span><span><a class="cap hqcap" href="#hq-e-novel">HQ 3</a> extra do autor no fim da HQ</span><span><span class="cap dccap">Discord · mai/25</span> fala do Toom no Discord</span></p>';
+      h += '<div class="curio"><h2>Você sabia…</h2><ul>' + FACTS.map(function (f) { return "<li>" + f + "</li>"; }).join("") + "</ul>";
+      h += "<h2>Do autor</h2><p class=\"src-note\">Das páginas extras que o Toom publica no fim dos capítulos da HQ.</p>";
+      (DATA.acurios || []).forEach(function (c) {
+        h += '<h3><a href="#' + c.s + '">' + esc(c.t) + "</a></h3><ul>" + c.items.map(function (i) { return "<li>" + i + "</li>"; }).join("") + "</ul>";
+      });
+      if ((DATA.dcurios || []).length) {
+        h += "<h2>Do Discord</h2><p class=\"src-note\">Respostas do Toom aos fãs no servidor oficial. Ele às vezes brinca ou muda de ideia, então vale conferir a data.</p><ul>" +
+          DATA.dcurios.map(function (c) { return c.h.replace("</li>", ' <a href="#' + c.s + '" style="font-size:13px">ver página</a></li>'); }).join("") + "</ul>";
+      }
+      h += "<h2>Dos capítulos</h2>";
+      (DATA.curios || []).forEach(function (c) {
+        h += '<h3><a href="#' + c.s + '">' + esc(c.t) + "</a></h3><ul>" + c.items.map(function (i) { return "<li>" + i + "</li>"; }).join("") + "</ul>";
+      });
+      h += "</div>";
+    } else if (k === "personagens") {
+      h += "<h1>Personagens</h1><p>Todos os personagens com página nesta wiki, separados pelo lado em que estão na história até o capítulo 10.</p>";
+      var LADOS = ["Ordem do Fogo", "Aliados", "Domínio Sombrio", "Entidades", "Outros"];
+      var chars = groups["Personagens"] || [];
+      LADOS.forEach(function (l) {
+        var lst = chars.filter(function (p) { return (LADOS.indexOf(p.lado) >= 0 ? p.lado : "Outros") === l; });
+        if (lst.length) h += "<h2>" + l + "</h2>" + tiles(lst);
+      });
+      h += "<h2>Grupos de personagens</h2>" + tiles((groups["Grupos"] || []).filter(function (p) { return p.lado === "Personagens"; }));
+    } else if (k === "lugares") {
+      h += "<h1>Lugares</h1><p>Cidades, florestas, reinos e dimensões onde a história acontece.</p>" + tiles(groups["Lugares"]);
+    } else if (k === "o-mundo") {
+      h += "<h1>O Mundo</h1><p>Como a magia funciona, de onde vêm as sombras e as regras que movem a história.</p>";
+      h += tiles((groups["Conceitos"] || []).filter(function (p) { return p.s !== "bestas"; }));
+      h += "<h2>A obra</h2>" + tiles(groups["Sobre"] || []);
+    } else if (k === "mapa") {
+      h += "<h1>Mapa da jornada</h1><p>Por onde a Ordem do Fogo já passou no Arco I, da largada da prova até o Domínio Sombrio. As direções (norte, sul, leste) seguem a leitura da comunidade sobre a obra, com um pouco de imaginação: o Toom nunca mostrou um mapa oficial, então nada aqui está em escala.</p>";
+      h += '<div class="mp-bar"><label for="mpNv">Li até</label><select id="mpNv">' + DATA.novel.map(function (c) {
+        var hq = c.hq.length ? "HQ " + c.hq.join(" e ") : "só na novel";
+        return '<option value="' + c.n + '"' + (c.n === mapNv ? " selected" : "") + ">Novel, cap. " + c.n + " (" + hq + ")</option>";
+      }).join("") + '</select><span class="mp-note">Paradas depois do ponto escolhido ficam escondidas.</span></div>';
+      h += '<div id="mpBody">' + mapBody() + "</div>";
+    } else if (k === "criaturas") {
+      var cr = groups["Criaturas"] || [];
+      h += "<h1>Bestas e criaturas</h1><p>Os bichos do mundo de Bunyy: os que têm nome e as espécies que já apareceram na história. Para entender o que é uma besta e como funciona a classificação de perigo, veja " + L("bestas", "Bestas") + ".</p>";
+      var named = cr.filter(function (p) { return p.tipo === "Com nome"; }), spc = cr.filter(function (p) { return p.tipo !== "Com nome"; });
+      if (named.length) h += "<h2>Criaturas com nome</h2><p class=\"src-note\">Bichos de estimação, mascotes e outras criaturas secundárias que ganharam nome.</p>" + tiles(named, "big");
+      if (spc.length) h += "<h2>Espécies</h2>" + tiles(spc);
+      h += "<h2>Só citadas</h2><ul class=\"also\"><li><b>Tartaruga elemental gigante</b>, pacífica</li><li><b>Trolls</b></li><li><b>Decompositores</b></li><li><b>Matinta pereira</b>, pássaro mágico que parece uma velha</li><li><b>Pelosos</b>, lobos sem olhos</li><li><b>Olho de dragão</b></li></ul><p>Mais detalhes em " + L("bestas", "Bestas") + ".</p>";
+    } else if (k === "grupos") {
+      h += "<h1>Grupos</h1><p>Equipes, tripulações, cortes e organizações.</p>" + tiles(groups["Grupos"]);
+    }
+    return h + "</section>";
+  }
+
+  function figure(cls, src, cap) {
+    return '<figure class="' + cls + '"><a href="' + esc(src) + '" target="_blank" rel="noopener" title="Abrir imagem inteira"><img src="' + esc(src) + '" alt="' + esc(cap || "") + '" loading="lazy"></a>' + (cap ? "<figcaption>" + esc(cap) + "</figcaption>" : "") + "</figure>";
+  }
+  function withImages(p) {
+    var im = pageImg(p.s), h = p.h;
+    if (im.foto) {
+      if (h.indexOf('class="infobox"') >= 0) h = h.replace("</div><dl>", "</div>" + figure("ib-img", im.foto, im.legenda) + "<dl>");
+      else h = figure("pic", im.foto, im.legenda) + h;
+    }
+    var gal = (im.galeria || []).filter(function (g) { return g && g.arquivo; });
+    if (gal.length) h += '<h2 id="galeria">Galeria</h2><div class="gallery">' + gal.map(function (g) { return figure("", g.arquivo, g.legenda); }).join("") + "</div>";
+    var vs = (im.versoes || []).filter(function (g) { return g && g.arquivo; });
+    if (vs.length) h += '<h2 id="versoes">Outras versões</h2><p class="src-note">Como ' + esc(p.t) + ' aparece em outras artes oficiais: capas e ilustrações das novels. Clique para ver inteira.</p><div class="versoes">' + vs.map(function (g) { return figure("", g.arquivo, g.legenda); }).join("") + "</div>";
+    var tmp = document.createElement("div"); tmp.innerHTML = h;
+    var side = tmp.querySelector(".infobox") || tmp.querySelector(":scope > .pic");
+    if (!side) return '<div class="pg-solo">' + h + "</div>";
+    side.parentNode.removeChild(side);
+    return '<div class="pg"><div class="pg-main">' + tmp.innerHTML + '</div><aside class="pg-side">' + side.outerHTML + "</aside></div>";
+  }
+  function readbar(p) {
+    var m = /^capitulo-(\d+)$/.exec(p.s);
+    if (!m) return "";
+    var n = parseInt(m[1], 10), nv = cfg("novel." + n);
+    var ent = (DATA.novel || []).filter(function (x) { return x.n === n; })[0] || { hq: [] };
+    var hqs = ent.hq.length ? ent.hq.map(function (x) {
+      return '<a class="hq" href="https://fliptru.com.br/comic/bunyy/' + ("00" + x).slice(-3) + '" target="_blank" rel="noopener">Ler a HQ, cap. ' + x + "</a>";
+    }).join("") : "<span>Ainda não está na HQ</span>";
+    return '<div class="readbar">' + hqs +
+      (nv ? '<a class="nv" href="' + esc(nv) + '" target="_blank" rel="noopener">Ler a novel</a>' : "<span>Novel: link em breve</span>") + "</div>";
+  }
+
+  function page(p) {
+    var t = tabOf(p), tabT = TABS.filter(function (x) { return x.k === t; })[0];
+    var badges = '<div class="badges">';
+    if (p.sp) badges += '<span class="badge spoiler">Spoilers até o ' + esc(p.sp) + "</span>";
+    if (p.f === "novel") badges += '<span class="badge canon">Fonte: obra oficial</span>';
+    if (p.f === "discord") badges += '<span class="badge dc">Fonte: falas do Toom no Discord</span>';
+    badges += "</div>";
+    return '<article><p class="crumb">' + (tabT ? '<a href="#' + tabT.k + '">' + tabT.t + "</a>" : "") + "</p><h1>" + esc(p.t) + "</h1>" +
+      (p.sub ? '<p class="subtitle">' + esc(p.sub) + "</p>" : "") + badges + readbar(p) + '<div class="content">' + withImages(p) + "</div>" +
+      '<p class="fix-bar">Achou um erro ou tem algo a acrescentar nesta página? <a href="#contribuir/' + p.s + '">Avise a gente</a>.</p></article>';
+  }
+
+  function norm(s) { return s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase(); }
+  function search(term) {
+    var t = norm(term.trim());
+    var res = pages.map(function (p) {
+      var inTitle = norm(p.t).indexOf(t) >= 0, idx = norm(p.x).indexOf(t);
+      return { p: p, score: inTitle ? 2 : idx >= 0 ? 1 : 0, idx: idx };
+    }).filter(function (r) { return r.score; }).sort(function (a, b) { return b.score - a.score; });
+    var h = '<article><p class="crumb">Busca</p><h1>Resultados para “' + esc(term.trim()) + "”</h1>";
+    if (!res.length) return h + '<p class="subtitle">Nada encontrado. Tente o nome de um personagem ou lugar.</p></article>';
+    h += '<p class="subtitle">' + res.length + (res.length === 1 ? " página" : " páginas") + '</p><ul class="results">';
+    res.slice(0, 40).forEach(function (r) {
+      var snip = "";
+      if (r.idx >= 0) {
+        var a = Math.max(0, r.idx - 60), raw = r.p.x.slice(a, r.idx + t.length + 90), at = r.idx - a;
+        snip = (a ? "…" : "") + esc(raw.slice(0, at)) + "<mark>" + esc(raw.slice(at, at + t.length)) + "</mark>" + esc(raw.slice(at + t.length)) + "…";
+      } else if (r.p.sub) { snip = esc(r.p.sub); }
+      h += '<li><a href="#' + r.p.s + '"><b>' + esc(r.p.t) + "</b><small>" + snip + "</small></a></li>";
+    });
+    return h + "</ul></article>";
+  }
+
+  function setTab(k) {
+    document.querySelectorAll("#tabs a").forEach(function (a) {
+      if (a.getAttribute("data-k") === k) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
+    });
+  }
+
+  function wireHome() {
+    var btn = document.getElementById("reveal");
+    if (btn) btn.addEventListener("click", function () {
+      document.getElementById("spoilText").classList.remove("blurred");
+      document.getElementById("spoilChips").hidden = false;
+      btn.remove();
+    });
+    var more = document.getElementById("moreFacts");
+    if (more) more.addEventListener("click", function () {
+      factStart = (factStart + 3) % FACTS.length;
+      document.getElementById("facts").innerHTML = factsHtml();
+    });
+  }
+
+  var TABKEYS = TABS.map(function (t) { return t.k; });
+  function render() {
+    var s = (location.hash || "").slice(1) || "inicio";
+    var ctx = "";
+    if (s.indexOf("contribuir/") === 0) { ctx = s.slice(11); s = "contribuir"; }
+    var p = bySlug[s];
+    if (p) { main.innerHTML = page(p); setTab(tabOf(p)); document.title = p.t + " · Bunyy Wiki"; }
+    else if (TABKEYS.indexOf(s) >= 0) { main.innerHTML = tabPage(s, ctx); setTab(s); document.title = TABS[TABKEYS.indexOf(s)].t + " · Bunyy Wiki"; if (s === "mapa") wireMap(); if (s === "linha-do-tempo") wireLinha(); }
+    else { main.innerHTML = home(); setTab(null); document.title = "Bunyy Wiki"; wireHome(); }
+    window.scrollTo(0, 0);
+  }
+
+  var timer;
+  q.addEventListener("input", function () {
+    clearTimeout(timer);
+    timer = setTimeout(function () {
+      if (q.value.trim().length >= 2) { main.innerHTML = search(q.value); setTab(null); }
+      else render();
+    }, 120);
+  });
+  window.addEventListener("hashchange", function () { q.value = ""; render(); main.focus({ preventScroll: true }); });
+  render();
+})();
+</script>
