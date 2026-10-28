@@ -254,7 +254,7 @@ content:
           - name: discord
             label: Link de convite do Discord
             type: string
-            description: 'Ex.: https://discord.gg/xxxx. Deixe vazio para esconder o botão.'
+            description: 'Ex.: https://discord.gg/r3HpJZwgXm. Deixe vazio para esconder o botão.'
           - name: discord_texto
             label: Texto do cartão do Discord
             type: string
