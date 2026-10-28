@@ -10,7 +10,7 @@ hq:
 - numero: 3
   titulo: Endos
   classificacao: A12
-  capa: imagens/hq/capa-03-endos.jpg
+  capa: imagens/hq/capa-03.jpg
 - numero: 4
   titulo: Caverna do Dragão
   classificacao: A12
@@ -52,41 +52,41 @@ novel:
   - 2
 - numero: 3
   titulo: ''
-  link: ''
+  link: https://drive.google.com/file/d/1GPFAAanaQb2jdtMfKwWWNLrYxfczbN3q/view?usp=drivesdk
   capitulos_da_hq:
   - 3
 - numero: 4
   titulo: ''
-  link: ''
+  link: https://drive.google.com/file/d/16lnUDHNlZSvqyeaX1y5HPu96MPYEmecf/view?usp=drivesdk
   capitulos_da_hq:
   - 4
   - 5
 - numero: 5
   titulo: ''
-  link: ''
+  link: https://drive.google.com/file/d/1p7hJHBlp5Oq99hvKyrx1k3BTGPzKFV1m/view?usp=drivesdk
   capitulos_da_hq:
   - 7
   - 8
 - numero: 6
   titulo: ''
-  link: ''
+  link: https://drive.google.com/file/d/1p4EYmkWyMqQolFa0pJMSC0v2qKXooK7H/view?usp=drivesdk
   capitulos_da_hq:
   - 6
   - 9
 - numero: 7
   titulo: ''
-  link: ''
+  link: https://drive.google.com/file/d/1wZBVyptMo1J_WfeObx0PN_UWE7odr-XW/view?usp=drivesdk 
   capitulos_da_hq:
   - 10
 - numero: 8
   titulo: ''
-  link: ''
+  link: https://drive.google.com/file/d/1jk0SJ4rJMyj7qeiCBYS5tCHnifXSSj7L/view?usp=drive_link
   capitulos_da_hq: []
 - numero: 9
   titulo: ''
-  link: ''
+  link: https://drive.google.com/file/d/1XloKTgmmT0OqN-aivoNB_kGPRTArnRjH/view?usp=sharing
   capitulos_da_hq: []
 - numero: 10
   titulo: ''
-  link: ''
+  link: https://drive.google.com/file/d/1akfvoJ8g48YH7nbXXWZbou4-bDtmFVu2/view?usp=sharing
   capitulos_da_hq: []
