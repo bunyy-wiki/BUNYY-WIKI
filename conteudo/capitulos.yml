@@ -2,15 +2,15 @@ hq:
 - numero: 1
   titulo: Faça uma boa prova
   classificacao: A12
-  capa: imagens/hq/capa-01.jpg
+  capa: imagens/hq/capa-01.jpg.png
 - numero: 2
   titulo: Insônia
   classificacao: A12
-  capa: imagens/hq/capa-02.jpg
+  capa: imagens/hq/capa-02.jpg.png
 - numero: 3
   titulo: Endos
   classificacao: A12
-  capa: imagens/hq/capa-03.jpg
+  capa: imagens/hq/capa-03.jpg.png
 - numero: 4
   titulo: Caverna do Dragão
   classificacao: A12
