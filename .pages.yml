@@ -58,6 +58,10 @@ content:
               label: Obra oficial
             - name: discord
               label: Falas do Toom no Discord
+      - name: estreia_novel
+        label: Aparece pela primeira vez no capítulo da novel
+        type: number
+        description: 'Para o filtro "Li até": quem leu menos que isso vê um aviso de spoiler antes da página. Se ficar vazio, o site usa o primeiro {cap N} do texto.'
       - name: ordem
         label: Ordem na lista
         type: number
@@ -220,6 +224,257 @@ content:
           - name: texto
             type: text
             description: 'Pode usar links e {cap 3}.'
+
+      - name: links
+        label: Onde acompanhar (links)
+        type: object
+        list: true
+        description: Aparecem na página inicial e na Comunidade.
+        fields:
+          - name: titulo
+            type: string
+          - name: url
+            label: Link
+            type: string
+          - name: descricao
+            label: Descrição
+            type: string
+          - name: tipo
+            type: select
+            options:
+              values:
+                - name: oficial
+                  label: Oficial
+                - name: comunidade
+                  label: Da comunidade
+      - name: comunidade
+        label: Contribua (formulário e Discord)
+        type: object
+        fields:
+          - name: discord
+            label: Link de convite do Discord
+            type: string
+            description: 'Ex.: https://discord.gg/xxxx. Deixe vazio para esconder o botão.'
+          - name: discord_texto
+            label: Texto do cartão do Discord
+            type: string
+          - name: formulario
+            label: Link do formulário (Google Forms)
+            type: string
+            description: O link de "Enviar" do formulário, que termina em /viewform.
+          - name: formulario_campo_pagina
+            label: Código do campo "Página" no formulário (opcional)
+            type: string
+            description: 'Ex.: entry.123456789. Com ele, o formulário já abre com o nome da página preenchido. Veja o LEIA-ME.'
+          - name: github_issues
+            label: Link de sugestões no GitHub (opcional)
+            type: string
+
+  - name: linha
+    label: Linha do tempo
+    type: file
+    path: conteudo/linha-do-tempo.yml
+    format: yaml
+    fields:
+      - name: introducao
+        label: Texto de apresentação
+        type: text
+      - name: epocas
+        label: Épocas
+        type: object
+        list: true
+        description: Na ordem em que aconteceram, da mais antiga para a mais nova.
+        fields:
+          - name: titulo
+            label: Título da época
+            type: string
+          - name: quando
+            label: Quando (ex. Há milhares de anos)
+            type: string
+          - name: eventos
+            label: Eventos
+            type: object
+            list: true
+            fields:
+              - name: quando
+                label: Data ou momento (opcional)
+                type: string
+              - name: texto
+                label: O que aconteceu
+                type: text
+                description: 'Pode usar links, ex.: [Arthur](#arthur).'
+              - name: novel
+                label: Capítulo da novel em que isso é revelado
+                type: number
+                description: Usado no filtro "Li até" para esconder spoilers.
+              - name: fonte
+                label: Fonte
+                type: select
+                options:
+                  values:
+                    - name: obra
+                      label: Obra (HQ ou novel)
+                    - name: discord
+                      label: Falas do Toom no Discord
+              - name: destaque
+                label: Evento importante (borda azul)
+                type: boolean
+
+  - name: galeria
+    label: Galeria de artes
+    type: file
+    path: conteudo/galeria.yml
+    format: yaml
+    fields:
+      - name: apresentacao
+        label: Texto de apresentação
+        type: text
+      - name: secoes
+        label: Categorias
+        type: object
+        list: true
+        description: 'Ex.: Músicas oficiais, Animação, Mistérios. Categoria sem imagem não aparece no site.'
+        fields:
+          - name: titulo
+            label: Nome da categoria
+            type: string
+          - name: descricao
+            label: Descrição
+            type: string
+          - name: itens
+            label: Imagens
+            type: object
+            list: true
+            fields:
+              - name: imagem
+                type: image
+              - name: titulo
+                type: string
+              - name: descricao
+                label: Descrição (opcional)
+                type: text
+              - name: fonte
+                label: De onde é
+                type: string
+                description: 'Ex.: Música "Motivos", YouTube.'
+              - name: link
+                label: Link da fonte (opcional)
+                type: string
+              - name: data
+                label: Data (opcional)
+                type: string
+              - name: paginas
+                label: Páginas relacionadas (ex. bunyy-grimm)
+                type: string
+                list: true
+
+  - name: quiz
+    label: Quiz da semana
+    type: file
+    path: conteudo/quiz.yml
+    format: yaml
+    fields:
+      - name: quizzes
+        label: Quizzes
+        type: object
+        list: true
+        description: Cada quiz aparece a partir da data em "Começa em". Dá para deixar várias semanas prontas; as futuras ficam escondidas.
+        fields:
+          - name: titulo
+            label: Título
+            type: string
+          - name: semana_de
+            label: Começa em (AAAA-MM-DD)
+            type: string
+            pattern: "^\\d{4}-\\d{2}-\\d{2}$"
+          - name: spoilers_ate
+            label: Spoilers até o capítulo da novel
+            type: number
+          - name: perguntas
+            label: Perguntas
+            type: object
+            list: true
+            fields:
+              - name: pergunta
+                type: string
+              - name: opcoes
+                label: Opções
+                type: string
+                list: true
+              - name: correta
+                label: Número da opção certa (1 = primeira)
+                type: number
+              - name: explicacao
+                label: Explicação (aparece depois de responder)
+                type: text
+                description: 'Pode usar {cap 3} e links.'
+
+  - name: comunidade
+    label: Comunidade (teorias e fanarts)
+    type: file
+    path: conteudo/comunidade.yml
+    format: yaml
+    fields:
+      - name: apresentacao
+        label: Texto de apresentação
+        type: text
+      - name: link_envio
+        label: Link do formulário para mandar teoria ou fanart
+        type: string
+      - name: discord_widget_id
+        label: ID do servidor (widget oficial do Discord, opcional)
+        type: string
+        description: Mostra quem está online e um botão de entrar. Precisa ativar o widget nas configurações do servidor.
+      - name: widgetbot_servidor
+        label: WidgetBot · ID do servidor (opcional)
+        type: string
+        description: Chat do Discord dentro do site. Precisa adicionar o bot WidgetBot ao servidor. Veja o LEIA-ME.
+      - name: widgetbot_canal
+        label: WidgetBot · ID do canal
+        type: string
+      - name: teorias
+        label: Teorias
+        type: object
+        list: true
+        fields:
+          - name: titulo
+            type: string
+          - name: autor
+            label: Autor (nome ou @ no Discord)
+            type: string
+          - name: data
+            label: Data (AAAA-MM-DD)
+            type: string
+          - name: spoiler_ate
+            label: Spoilers até o capítulo da novel
+            type: number
+          - name: imagem
+            label: Imagem (opcional)
+            type: image
+          - name: texto
+            label: Teoria
+            type: rich-text
+            options:
+              format: markdown
+      - name: fanarts
+        label: Fanarts
+        type: object
+        list: true
+        description: Só publique com a autorização de quem desenhou.
+        fields:
+          - name: imagem
+            type: image
+          - name: titulo
+            type: string
+          - name: autor
+            label: Artista
+            type: string
+          - name: link_autor
+            label: Link do artista (Instagram, Twitter...)
+            type: string
+          - name: data
+            label: Data (AAAA-MM-DD)
+            type: string
 
   - name: capitulos
     label: Capítulos (HQ e novel)
