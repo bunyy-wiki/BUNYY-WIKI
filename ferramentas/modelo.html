@@ -56,7 +56,7 @@ a:hover { text-decoration-thickness: 2px; }
 
 /* ---------- abas ---------- */
 .tabs-band { background: var(--navy); border-top: 1px solid #1d3360; }
-.tabs ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 2px 26px; }
+.tabs ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 2px 22px; }
 .tabs a { display: block; padding: 11px 0 9px; color: #cfdcf2; text-decoration: none; font-family: "Outfit", var(--body); font-weight: 500; font-size: 16px; border-bottom: 3px solid transparent; white-space: nowrap; }
 .tabs a:hover { color: #ffffff; }
 .tabs a[aria-current="page"] { color: #ffffff; border-bottom-color: var(--cyan); }
@@ -260,6 +260,66 @@ a.cap.dccap:hover { background: #4e5bbd; color: #ffffff; }
 ul.dc-list li { margin-bottom: 7px; }
 .badge.dc { background: #eceefb; color: #4e5bbd; }
 .src-note { font-size: 14px; color: var(--muted); margin: -4px 0 10px; }
+/* linha do tempo */
+.lt { position: relative; margin: 8px 0 0; padding-left: 28px; max-width: 860px; }
+.lt::before { content: ""; position: absolute; left: 9px; top: 6px; bottom: 6px; width: 3px; background: linear-gradient(var(--cyan), var(--teal-2)); border-radius: 2px; }
+.lt-era { position: relative; margin: 0 0 8px; padding-top: 18px; }
+.lt-era:first-child { padding-top: 0; }
+.lt-era > h2 { margin: 0; border: 0; padding: 0; font-size: 22px; }
+.lt-era > h2::before { content: ""; position: absolute; left: -27px; margin-top: 6px; width: 17px; height: 17px; border-radius: 50%; background: var(--navy); border: 3px solid var(--cyan); }
+.lt-when { display: inline-block; margin: 2px 0 10px; font-family: "JetBrains Mono", monospace; font-size: 12px; letter-spacing: .04em; text-transform: uppercase; color: var(--teal-2); }
+.lt-ev { position: relative; margin: 0 0 10px; padding: 10px 14px; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; line-height: 1.55; }
+.lt-ev::before { content: ""; position: absolute; left: -23px; top: 16px; width: 9px; height: 9px; border-radius: 50%; background: var(--teal-2); }
+.lt-ev.x { border-left: 4px solid var(--cyan); }
+.lt-ev.x::before { background: var(--cyan); width: 11px; height: 11px; left: -24px; }
+.lt-ev b.q { display: block; font-size: 13px; color: var(--teal); margin-bottom: 2px; }
+.lt-ev .cap { margin-left: 4px; }
+.lt-hidden { margin: 14px 0 0; padding: 12px 14px; border: 1px dashed var(--line); border-radius: 8px; color: var(--muted); font-size: 14px; }
+/* contribuir */
+.ct-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; margin: 16px 0 8px; }
+.ct-card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px; }
+.ct-card h2 { margin: 0 0 6px; border: 0; padding: 0; font-size: 19px; }
+.ct-card p { margin: 0 0 12px; }
+.ct-card.dark { background: var(--navy); color: #dbe6f6; border-color: var(--navy); }
+.ct-card.dark h2 { color: #fff; }
+.ct-btn { display: inline-block; padding: 11px 18px; border-radius: 999px; background: var(--teal-2); color: #fff !important; font-weight: 700; text-decoration: none; }
+.ct-btn:hover { background: var(--teal); }
+.ct-card.dark .ct-btn { background: #5865f2; }
+.ct-off { font-size: 14px; color: var(--muted); font-style: italic; }
+.ct-page { margin: 12px 0 0; padding: 12px 16px; background: #e3f4fb; border-left: 4px solid var(--cyan); border-radius: 6px; }
+/* comunidade e quiz */
+.cm-quiz { display: flex; flex-wrap: wrap; gap: 14px 24px; align-items: center; justify-content: space-between; background: var(--navy); color: #dbe6f6; border-radius: 14px; padding: 20px 22px; margin: 16px 0 6px; }
+.cm-quiz h2 { margin: 0 0 4px; color: #fff; border: 0; padding: 0; font-size: 22px; }
+.cm-quiz p { margin: 0; }
+.cm-quiz .ct-btn { background: var(--cyan); color: var(--navy) !important; }
+.cm-empty { padding: 16px 18px; border: 1px dashed var(--line); border-radius: 10px; color: var(--muted); }
+.teoria { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; margin: 0 0 10px; }
+.teoria summary { cursor: pointer; padding: 12px 16px; font-weight: 700; list-style: none; }
+.teoria summary::-webkit-details-marker { display: none; }
+.teoria summary::after { content: "Ler"; float: right; font-size: 13px; color: var(--teal-2); font-weight: 600; }
+.teoria[open] summary::after { content: "Fechar"; }
+.teoria summary small { display: block; font-weight: 400; color: var(--muted); font-size: 13px; }
+.teoria .tb { padding: 0 16px 14px; }
+.teoria .tb img { max-width: 100%; border-radius: 8px; }
+.fanarts { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
+.fanarts figure { margin: 0; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+.fanarts img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block; }
+.fanarts figcaption { padding: 8px 10px; font-size: 14px; }
+.dc-embed { width: 100%; height: 520px; border: 0; border-radius: 12px; background: var(--navy); }
+.qz { max-width: 760px; }
+.qz-q { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; margin: 0 0 12px; }
+.qz-q h3 { margin: 0 0 10px; font-size: 17px; }
+.qz-ops { display: grid; gap: 8px; }
+.qz-ops button { font: inherit; text-align: left; padding: 11px 14px; min-height: 44px; border-radius: 10px; border: 1px solid var(--line); background: #f6f9fd; color: var(--ink); cursor: pointer; }
+.qz-ops button:hover:not([disabled]) { border-color: var(--teal-2); }
+.qz-ops button[disabled] { cursor: default; }
+.qz-ops button.ok { background: #e1f6ea; border-color: #2f9e5b; font-weight: 700; }
+.qz-ops button.no { background: #fde8e8; border-color: #d14b4b; }
+.qz-ex { margin: 10px 0 0; font-size: 15px; color: var(--muted); }
+.qz-res { background: var(--navy); color: #fff; border-radius: 12px; padding: 18px 20px; margin: 6px 0 14px; }
+.qz-res b { font-size: 28px; color: var(--cyan); }
+.qz-res .ct-btn { background: var(--cyan); color: var(--navy) !important; border: 0; font: inherit; font-weight: 700; cursor: pointer; margin-top: 10px; }
+.fix-bar { margin: 34px 0 0; padding: 12px 16px; border-top: 1px solid var(--line); font-size: 14px; color: var(--muted); }
 .covers { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 10px; margin: 0 0 22px; }
 .covers a { display: block; text-decoration: none; color: var(--ink); border: 1px solid var(--line); background: var(--soft); }
 .covers a:hover { border-color: var(--teal-2); }
@@ -372,7 +432,7 @@ footer .wrap { padding-block: 18px 26px; font-size: 14px; color: #b7c6df; }
 <main class="wrap" id="main" tabindex="-1"></main>
 <footer>
   <div class="wrap">
-    Site de fãs, não oficial. BUNYY é uma obra de Toom, publicada gratuitamente na <a href="https://fliptru.com.br/comic/bunyy" target="_blank" rel="noopener">Fliptru</a>. Os resumos cobrem os capítulos 1 a 10 e trazem spoilers.
+    Site de fãs, não oficial. BUNYY é uma obra de Toom, publicada gratuitamente na <a href="https://fliptru.com.br/comic/bunyy" target="_blank" rel="noopener">Fliptru</a>. Os resumos cobrem os capítulos 1 a 10 e trazem spoilers. Achou um erro? <a href="#contribuir">Contribua</a>.
   </div>
 </footer>
 <script>
@@ -411,8 +471,8 @@ footer .wrap { padding-block: 18px 26px; font-size: 14px; color: #b7c6df; }
 
   // ---------- abas ----------
   var TABS = [
-    { k: "hq-e-novel", t: "HQ e Novel" }, { k: "curiosidades", t: "Curiosidades" }, { k: "personagens", t: "Personagens" },
-    { k: "lugares", t: "Lugares" }, { k: "o-mundo", t: "O Mundo" }, { k: "grupos", t: "Grupos" }, { k: "criaturas", t: "Bestas e criaturas" }, { k: "mapa", t: "Mapa da jornada" }
+    { k: "hq-e-novel", t: "HQ e Novel" }, { k: "linha-do-tempo", t: "Linha do tempo" }, { k: "curiosidades", t: "Curiosidades" }, { k: "personagens", t: "Personagens" },
+    { k: "lugares", t: "Lugares" }, { k: "o-mundo", t: "O Mundo" }, { k: "grupos", t: "Grupos" }, { k: "criaturas", t: "Bestas e criaturas" }, { k: "mapa", t: "Mapa da jornada" }, { k: "comunidade", t: "Comunidade" }
   ];
   document.getElementById("tabs").innerHTML = TABS.map(function (t) {
     return '<li><a href="#' + t.k + '" data-k="' + t.k + '">' + t.t + "</a></li>";
@@ -498,7 +558,7 @@ footer .wrap { padding-block: 18px 26px; font-size: 14px; color: #b7c6df; }
     var CATS = [["personagens", "Personagens", "rabbit"], ["ordem-do-fogo", "Ordem do Fogo", "group"], ["sombras", "Sombras", "mask"],
       ["lucendi", "Lucendi", "eye"], ["magia", "Magia", "flame"], ["armas-matriz", "Armas matriz", "sword"],
       ["criaturas", "Bestas e criaturas", "claw"], ["nano-alteradores", "Nano-alteradores", "vial"], ["dominio-sombrio", "Domínio Sombrio", "tree"],
-      ["jolly-roger-iii", "Jolly Roger III", "ship"], ["lugares", "Lugares", "pin"], ["mapa", "Mapa da jornada", "pin"], ["curiosidades", "Curiosidades", "question"]];
+      ["jolly-roger-iii", "Jolly Roger III", "ship"], ["lugares", "Lugares", "pin"], ["mapa", "Mapa da jornada", "pin"], ["linha-do-tempo", "Linha do tempo", "play"], ["comunidade", "Comunidade", "group"], ["quiz", "Quiz da semana", "question"], ["curiosidades", "Curiosidades", "question"]];
     h += '<section><div class="v-head"><h2>Explorar o mundo</h2></div><div class="v-cats">' + CATS.map(function (c) {
       return '<a href="#' + c[0] + '">' + icon(c[2]) + c[1] + "</a>";
     }).join("") + "</div></section>";
@@ -625,9 +685,160 @@ footer .wrap { padding-block: 18px 26px; font-size: 14px; color: #b7c6df; }
     });
   }
 
-  function tabPage(k) {
+  // ---------- linha do tempo ----------
+  var LINHA = DATA.linha || { epocas: [] };
+  var ltNv = DATA.novel.length ? DATA.novel[DATA.novel.length - 1].n : 99;
+  try { var sv = parseInt(localStorage.getItem("bunyy-li-ate"), 10); if (sv) ltNv = sv; } catch (e) {}
+  function linhaBody() {
+    var h = '<div class="lt">', hidden = 0;
+    LINHA.epocas.forEach(function (ep) {
+      var evs = ep.ev.filter(function (e) { if (e.nv > ltNv) { hidden++; return false; } return true; });
+      if (!evs.length) return;
+      h += '<section class="lt-era"><h2>' + esc(ep.t) + "</h2>" + (ep.q ? '<span class="lt-when">' + esc(ep.q) + "</span>" : "");
+      evs.forEach(function (e) {
+        h += '<div class="lt-ev' + (e.x ? " x" : "") + '">' + (e.q ? '<b class="q">' + esc(e.q) + "</b>" : "") + e.h +
+          (e.nv ? " " + cap(e.nv) : "") + (e.dc ? ' <span class="cap dccap" title="Dito pelo Toom no Discord">Discord</span>' : "") + "</div>";
+      });
+      h += "</section>";
+    });
+    h += "</div>";
+    if (hidden) h += '<p class="lt-hidden">' + hidden + (hidden === 1 ? " evento escondido" : " eventos escondidos") + " para não dar spoiler. Mude o “Li até” para ver.</p>";
+    return h;
+  }
+  function wireLinha() {
+    var sel = document.getElementById("ltNv");
+    if (sel) sel.addEventListener("change", function () {
+      ltNv = parseInt(sel.value, 10);
+      try { localStorage.setItem("bunyy-li-ate", String(ltNv)); } catch (e) {}
+      document.getElementById("ltBody").innerHTML = linhaBody();
+    });
+  }
+
+  // ---------- contribua ----------
+  var COM = (DATA.inicio && DATA.inicio.comunidade) || {};
+  function formLink(slug) {
+    var u = COM.formulario || "";
+    if (u && slug && COM.formulario_campo_pagina) {
+      var pg = bySlug[slug] ? bySlug[slug].t : slug;
+      u += (u.indexOf("?") >= 0 ? "&" : "?") + "usp=pp_url&" + encodeURIComponent(COM.formulario_campo_pagina) + "=" + encodeURIComponent(pg);
+    }
+    return u;
+  }
+  function contribuir(ctx) {
+    var pg = ctx && bySlug[ctx], h = "<h1>Contribua com a wiki</h1><p>A Bunyy Wiki é feita por fãs, e sempre tem algo para corrigir ou acrescentar: um nome errado, um detalhe que faltou, uma fala nova do Toom ou uma imagem melhor. Toda ajuda é bem-vinda.</p>";
+    if (pg) h += '<p class="ct-page">Você está falando da página <a href="#' + pg.s + '"><b>' + esc(pg.t) + "</b></a>. Cite o nome dela na sua mensagem.</p>";
+    var f = formLink(ctx);
+    h += '<div class="ct-grid"><section class="ct-card"><h2>Apontar um erro ou sugerir algo</h2><p>Leva um minuto e não precisa de conta. Diga em qual página está, o que mudar e, se puder, de onde veio a informação: capítulo, página da HQ ou link da mensagem no Discord.</p>' +
+      (f ? '<a class="ct-btn" href="' + esc(f) + '" target="_blank" rel="noopener">Abrir o formulário</a>' : '<p class="ct-off">O formulário ainda vai ser ligado. Enquanto isso, use o Discord.</p>') + "</section>";
+    h += '<section class="ct-card dark"><h2>Converse no Discord</h2><p>' + esc(COM.discord_texto || "Tire dúvidas e discuta teorias com outros fãs.") + "</p>" +
+      (COM.discord ? '<a class="ct-btn" href="' + esc(COM.discord) + '" target="_blank" rel="noopener">Entrar no Discord</a>' : '<p class="ct-off">Link do Discord em breve.</p>') + "</section>";
+    if (COM.github_issues) h += '<section class="ct-card"><h2>Tem conta no GitHub?</h2><p>Abra uma sugestão direto no repositório da wiki. Fica tudo registrado e dá para acompanhar a resposta.</p><a class="ct-btn" href="' + esc(COM.github_issues) + '" target="_blank" rel="noopener">Abrir sugestão</a></section>';
+    h += "</div>";
+    h += "<h2>Como ajudar mais</h2><ul><li><b>Imagens:</b> mande o print e diga o capítulo. Damos preferência às artes oficiais da HQ e da novel.</li><li><b>Falas do Toom:</b> cole o link da mensagem do Discord, que a data e a fonte entram junto.</li><li><b>Quer editar direto?</b> Peça acesso ao painel de edição. Quem cuida da wiki adiciona você como colaborador.</li><li><b>Fanart</b> só entra com o nome e a autorização de quem desenhou.</li></ul>";
+    return h;
+  }
+
+  // ---------- comunidade ----------
+  var CM = DATA.comu || { teorias: [], fanarts: [] };
+  var QZ = DATA.quiz || [];
+  function hoje() { var d = new Date(); return d.getFullYear() + "-" + ("0" + (d.getMonth() + 1)).slice(-2) + "-" + ("0" + d.getDate()).slice(-2); }
+  function quizzesAtivos() { var t = hoje(); return QZ.filter(function (q) { return q.d <= t; }); }
+  function fdata(d) { var p = (d || "").split("-"); return p.length === 3 ? p[2] + "/" + p[1] + "/" + p[0] : d; }
+  function qzSaved(q) { try { return JSON.parse(localStorage.getItem("bunyy-quiz-" + q.d) || "null"); } catch (e) { return null; } }
+  function comunidade() {
+    var h = "<h1>Comunidade</h1><p>" + (CM.intro || "") + "</p>";
+    var at = quizzesAtivos(), cur = at[at.length - 1];
+    if (cur) {
+      var sv = qzSaved(cur), done = sv && sv.filter(function (x) { return x !== null; }).length === cur.ps.length;
+      var pts = done ? sv.filter(function (x, i) { return x === cur.ps[i].c; }).length : 0;
+      h += '<section class="cm-quiz"><div><p class="lt-when" style="color:var(--cyan)">Quiz da semana · desde ' + fdata(cur.d) + "</p><h2>" + esc(cur.t) + "</h2><p>" + cur.ps.length + " perguntas" +
+        (cur.sp ? " · spoilers até o cap. " + cur.sp + " da novel" : "") + (done ? " · você fez " + pts + " de " + cur.ps.length : "") + '</p></div><a class="ct-btn" href="#quiz">' + (done ? "Ver respostas" : "Jogar agora") + "</a></section>";
+      if (at.length > 1) h += '<p class="src-note" style="margin-top:6px"><a href="#quiz">Quizzes anteriores</a></p>';
+    }
+    var envio = CM.envio ? '<a class="ct-btn" href="' + esc(CM.envio) + '" target="_blank" rel="noopener">Mandar teoria ou fanart</a>' : "";
+    h += "<h2>Teorias da comunidade</h2><p class=\"src-note\">Palpites dos fãs sobre o que vem por aí. Não são fatos da obra, e cada uma avisa até onde tem spoiler.</p>";
+    h += CM.teorias.length ? CM.teorias.map(function (t) {
+      return '<details class="teoria"><summary>' + esc(t.t) + "<small>" + (t.a ? "por " + esc(t.a) : "") + (t.d ? " · " + fdata(t.d) : "") + (t.sp ? " · spoilers até o cap. " + t.sp : "") + '</small></summary><div class="tb">' + (t.img ? '<img src="' + esc(t.img) + '" alt="" loading="lazy">' : "") + t.h + "</div></details>";
+    }).join("") : '<p class="cm-empty">Nenhuma teoria publicada ainda. Mande a sua!</p>';
+    h += "<h2>Fanarts</h2><p class=\"src-note\">Artes feitas pelos fãs e publicadas com autorização de quem desenhou. Clique para ver inteira.</p>";
+    h += CM.fanarts.length ? '<div class="fanarts">' + CM.fanarts.map(function (a) {
+      var who = a.a ? (a.l ? '<a href="' + esc(a.l) + '" target="_blank" rel="noopener">' + esc(a.a) + "</a>" : esc(a.a)) : "";
+      return '<figure><a href="' + esc(a.img) + '" target="_blank" rel="noopener"><img src="' + esc(a.img) + '" alt="' + esc(a.t) + '" loading="lazy"></a><figcaption>' + (a.t ? "<b>" + esc(a.t) + "</b><br>" : "") + (who ? "por " + who : "") + "</figcaption></figure>";
+    }).join("") + "</div>" : '<p class="cm-empty">Nenhuma fanart publicada ainda. Desenhou algo de Bunyy? Mande pra gente!</p>';
+    if (envio) h += '<p style="margin-top:14px">' + envio + "</p>";
+    h += "<h2>Converse no Discord</h2>";
+    if (CM.wb_s && CM.wb_c) h += '<p class="src-note">Entre com a sua conta do Discord e fale direto daqui.</p><iframe class="dc-embed" title="Chat do Discord" loading="lazy" src="https://e.widgetbot.io/channels/' + encodeURIComponent(CM.wb_s) + "/" + encodeURIComponent(CM.wb_c) + '"></iframe>';
+    else if (CM.widget) h += '<iframe class="dc-embed" style="height:420px" title="Servidor do Discord" loading="lazy" src="https://discord.com/widget?id=' + encodeURIComponent(CM.widget) + '&theme=dark" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>';
+    h += COM.discord ? '<p><a class="ct-btn" href="' + esc(COM.discord) + '" target="_blank" rel="noopener" style="background:#5865f2">Entrar no Discord</a></p>' : (CM.wb_s || CM.widget ? "" : '<p class="ct-off">Link do Discord em breve.</p>');
+    h += '<h2>Ajude a wiki</h2><p>Achou um erro ou tem algo a acrescentar? Veja <a href="#contribuir">como contribuir</a>.</p>';
+    return h;
+  }
+  function quizPage(ctx) {
+    var at = quizzesAtivos();
+    if (!at.length) return '<h1>Quiz da semana</h1><p class="cm-empty">O primeiro quiz ainda não começou. Volte em breve!</p>';
+    var q = at.filter(function (x) { return x.d === ctx; })[0] || at[at.length - 1];
+    var h = '<p class="crumb"><a href="#comunidade">Comunidade</a></p><h1>' + esc(q.t) + '</h1><p class="subtitle">Quiz da semana de ' + fdata(q.d) + (q.sp ? " · <b>spoilers até o capítulo " + q.sp + " da novel</b>" : "") + "</p>";
+    if (at.length > 1) h += '<div class="mp-bar"><label for="qzSel">Outras semanas</label><select id="qzSel">' + at.slice().reverse().map(function (x) {
+      return '<option value="' + x.d + '"' + (x === q ? " selected" : "") + ">" + fdata(x.d) + " · " + esc(x.t) + "</option>"; }).join("") + "</select></div>";
+    h += '<div class="qz" id="qz" data-d="' + q.d + '"></div>';
+    return h;
+  }
+  function wireQuiz() {
+    var box = document.getElementById("qz"); if (!box) return;
+    var sel = document.getElementById("qzSel");
+    if (sel) sel.addEventListener("change", function () { location.hash = "quiz/" + sel.value; });
+    var q = QZ.filter(function (x) { return x.d === box.getAttribute("data-d"); })[0];
+    var ans = qzSaved(q) || q.ps.map(function () { return null; });
+    function save() { try { localStorage.setItem("bunyy-quiz-" + q.d, JSON.stringify(ans)); } catch (e) {} }
+    function draw() {
+      var n = ans.filter(function (x) { return x !== null; }).length, pts = ans.filter(function (x, i) { return x === q.ps[i].c; }).length, h = "";
+      if (n === q.ps.length) {
+        var line = ans.map(function (x, i) { return x === q.ps[i].c ? "🟦" : "⬛"; }).join("");
+        h += '<div class="qz-res">Você acertou <b>' + pts + " de " + q.ps.length + "</b><br>" + line +
+          '<br><button class="ct-btn" type="button" id="qzShare">Copiar resultado para o Discord</button> <button class="ct-btn" type="button" id="qzAgain" style="background:transparent;color:#fff !important;border:1px solid #fff">Jogar de novo</button><span id="qzMsg" style="margin-left:8px"></span></div>';
+      }
+      h += q.ps.map(function (p, i) {
+        var a = ans[i];
+        return '<div class="qz-q"><h3>' + (i + 1) + ". " + p.p + '</h3><div class="qz-ops">' + p.o.map(function (o, j) {
+          var cls = a === null ? "" : j === p.c ? "ok" : j === a ? "no" : "";
+          return '<button type="button" data-i="' + i + '" data-j="' + j + '"' + (cls ? ' class="' + cls + '"' : "") + (a !== null ? " disabled" : "") + ">" + o + "</button>";
+        }).join("") + "</div>" + (a !== null ? '<p class="qz-ex">' + (a === p.c ? "✔ Isso! " : "✘ Não foi dessa vez. ") + p.e + "</p>" : "") + "</div>";
+      }).join("");
+      box.innerHTML = h;
+      box.querySelectorAll(".qz-ops button").forEach(function (b) {
+        b.addEventListener("click", function () { ans[+b.getAttribute("data-i")] = +b.getAttribute("data-j"); save(); draw(); });
+      });
+      var sh = document.getElementById("qzShare");
+      if (sh) sh.addEventListener("click", function () {
+        var txt = "Quiz da semana da Bunyy Wiki (" + fdata(q.d) + "): " + pts + "/" + q.ps.length + "\n" + ans.map(function (x, i) { return x === q.ps[i].c ? "🟦" : "⬛"; }).join("") + "\n" + location.href.split("#")[0] + "#quiz";
+        var msg = document.getElementById("qzMsg");
+        var manual = function () { msg.innerHTML = '<br><textarea rows="4" style="width:100%;max-width:420px;margin-top:8px;font:inherit;color:#0a1730" readonly>' + esc(txt) + "</textarea>"; var ta = msg.querySelector("textarea"); ta.focus(); ta.select(); };
+        if (navigator.clipboard) navigator.clipboard.writeText(txt).then(function () { msg.textContent = "Copiado! É só colar no Discord."; }, manual);
+        else manual();
+      });
+      var ag = document.getElementById("qzAgain");
+      if (ag) ag.addEventListener("click", function () { ans = q.ps.map(function () { return null; }); save(); draw(); });
+    }
+    draw();
+  }
+
+  function tabPage(k, ctx) {
     var h = '<section class="idx">';
-    if (k === "hq-e-novel") {
+    if (k === "linha-do-tempo") {
+      h += "<h1>Linha do tempo</h1><p>" + (LINHA.intro || "") + "</p>";
+      h += '<div class="mp-bar"><label for="ltNv">Li até</label><select id="ltNv">' + DATA.novel.map(function (c) {
+        var hq = c.hq.length ? "HQ " + c.hq.join(" e ") : "só na novel";
+        return '<option value="' + c.n + '"' + (c.n === ltNv ? " selected" : "") + ">Novel, cap. " + c.n + " (" + hq + ")</option>";
+      }).join("") + '</select><span class="mp-note">Os destaques têm borda azul.</span></div>';
+      h += '<div id="ltBody">' + linhaBody() + "</div>";
+    } else if (k === "contribuir") {
+      h += '<p class="crumb"><a href="#comunidade">Comunidade</a></p>' + contribuir(ctx);
+    } else if (k === "comunidade") {
+      h += comunidade();
+    } else if (k === "quiz") {
+      h += quizPage(ctx);
+    }
+    else if (k === "hq-e-novel") {
       h += "<h1>HQ e Novel</h1><p>BUNYY é contada em duas versões. A HQ sai de graça na Fliptru, com classificação geral 16 anos. A novel, em texto, sai antes dos quadrinhos, por isso está alguns capítulos à frente. A numeração das duas é diferente: um capítulo da novel pode virar dois da HQ.</p>";
       h += "<h2>HQ</h2>";
       h += '<div class="covers">' + DATA.hq.map(function (c) {
@@ -741,7 +952,8 @@ footer .wrap { padding-block: 18px 26px; font-size: 14px; color: #b7c6df; }
     if (p.f === "discord") badges += '<span class="badge dc">Fonte: falas do Toom no Discord</span>';
     badges += "</div>";
     return '<article><p class="crumb">' + (tabT ? '<a href="#' + tabT.k + '">' + tabT.t + "</a>" : "") + "</p><h1>" + esc(p.t) + "</h1>" +
-      (p.sub ? '<p class="subtitle">' + esc(p.sub) + "</p>" : "") + badges + readbar(p) + '<div class="content">' + withImages(p) + "</div></article>";
+      (p.sub ? '<p class="subtitle">' + esc(p.sub) + "</p>" : "") + badges + readbar(p) + '<div class="content">' + withImages(p) + "</div>" +
+      '<p class="fix-bar">Achou um erro ou tem algo a acrescentar nesta página? <a href="#contribuir/' + p.s + '">Avise a gente</a>.</p></article>';
   }
 
   function norm(s) { return s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase(); }
@@ -788,9 +1000,18 @@ footer .wrap { padding-block: 18px 26px; font-size: 14px; color: #b7c6df; }
   var TABKEYS = TABS.map(function (t) { return t.k; });
   function render() {
     var s = (location.hash || "").slice(1) || "inicio";
+    var ctx = "";
+    if (s.indexOf("contribuir/") === 0) { ctx = s.slice(11); s = "contribuir"; }
+    if (s.indexOf("quiz/") === 0) { ctx = s.slice(5); s = "quiz"; }
+    if (s === "contribuir" || s === "quiz") {
+      main.innerHTML = tabPage(s, ctx); setTab("comunidade");
+      document.title = (s === "quiz" ? "Quiz da semana" : "Contribua") + " · Bunyy Wiki";
+      if (s === "quiz") wireQuiz();
+      window.scrollTo(0, 0); return;
+    }
     var p = bySlug[s];
     if (p) { main.innerHTML = page(p); setTab(tabOf(p)); document.title = p.t + " · Bunyy Wiki"; }
-    else if (TABKEYS.indexOf(s) >= 0) { main.innerHTML = tabPage(s); setTab(s); document.title = TABS[TABKEYS.indexOf(s)].t + " · Bunyy Wiki"; if (s === "mapa") wireMap(); }
+    else if (TABKEYS.indexOf(s) >= 0) { main.innerHTML = tabPage(s, ctx); setTab(s); document.title = TABS[TABKEYS.indexOf(s)].t + " · Bunyy Wiki"; if (s === "mapa") wireMap(); if (s === "linha-do-tempo") wireLinha(); }
     else { main.innerHTML = home(); setTab(null); document.title = "Bunyy Wiki"; wireHome(); }
     window.scrollTo(0, 0);
   }

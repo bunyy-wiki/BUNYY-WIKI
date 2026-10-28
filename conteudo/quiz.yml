@@ -1,0 +1,102 @@
+# Cada quiz aparece a partir da data em "semana_de" (AAAA-MM-DD).
+# Dá para deixar várias semanas prontas: as futuras ficam escondidas até a data chegar.
+quizzes:
+  - titulo: 'Especial 31 de outubro: Domínio Sombrio'
+    semana_de: '2026-10-26'
+    spoilers_ate: 6
+    perguntas:
+      - pergunta: Qual prazo Arthur deu a Babayaga para trazer o receptáculo?
+        opcoes: [31 de outubro, 7 de outubro, 1º de novembro, Sete dias]
+        correta: 1
+        explicacao: Arthur sente a energia do irmão em Bunyy e dá a Babayaga até 31 de outubro {cap 6}.
+      - pergunta: Qual é o número de prisioneiro de Dim no Domínio Sombrio?
+        opcoes: ['626', '511', '2416', '1001']
+        correta: 3
+        explicacao: Dim é o prisioneiro 2416. A Mel é a 626 {cap 6}.
+      - pergunta: Qual é o poder de Arthur?
+        opcoes: [Controle de neve, Gravidade, Controle de cadáveres, Fios de fogo]
+        correta: 2
+        explicacao: Arthur aumenta o peso do ar para esmagar pessoas e muda a direção da gravidade {cap 6}.
+      - pergunta: O que Arthur gosta de tomar?
+        opcoes: [Chá de pêssego, Chocolate quente, Café de camomila, Suco de uva]
+        correta: 3
+        explicacao: Ele toma café de camomila e já matou um servo que esqueceu o açúcar {cap 6}.
+      - pergunta: Quem é o carcereiro-chefe do Domínio Sombrio?
+        opcoes: [Tripa, Arroto, Miku, Nevasca]
+        correta: 4
+        explicacao: Nevasca controla a neve e usa os dutos de ar para levar o frio a qualquer lugar da prisão {cap 6}.
+
+  - titulo: A Prova dos Sete Dias
+    semana_de: '2026-11-02'
+    spoilers_ate: 3
+    perguntas:
+      - pergunta: Quantos pontos uma equipe precisa para passar na prova?
+        opcoes: ['1.000', '5.000', '7.000', '50.000']
+        correta: 2
+        explicacao: Cada metro longe do muro vale um ponto, e o mínimo para passar é 5.000. Os 50.000 são o prêmio em brascos {cap 1}.
+      - pergunta: Qual é o nome da equipe de Bunyy?
+        opcoes: [Esquadrão 9-B, Ordem da Chama, Ordem do Fogo, Guerreiros de Onoath]
+        correta: 3
+        explicacao: Bunyy, Any, Onhos, Norman e Dim formam a Ordem do Fogo {cap 1}.
+      - pergunta: Com que arma Ynsonia luta na primeira vez que aparece?
+        opcoes: [Um guarda-chuva, Um ioiô gigante, Uma foice, Correntes]
+        correta: 2
+        explicacao: Ynsonia luta com um ioiô gigante. O guarda-chuva é da irmã dele, a Babayaga {cap 2}.
+      - pergunta: Como Lucendi gostaria de ser chamada?
+        opcoes: [Lu ou Lulu, Endos, Luz, Lucy]
+        correta: 1
+        explicacao: Ela diz que nunca teve com quem conversar e gostaria de ser chamada de Lu ou Lulu {cap 3}.
+      - pergunta: Em que turma da Academia de Guerreiros Bunyy estuda?
+        opcoes: [7-A, 8-C, 9-B, 10-A]
+        correta: 3
+        explicacao: A turma de Bunyy é a 9-B {cap 1}.
+
+  - titulo: Piratas e lendas
+    semana_de: '2026-11-09'
+    spoilers_ate: 5
+    perguntas:
+      - pergunta: Como se chama o tubarão de areia que puxa a Jolly Roger III?
+        opcoes: [Cérbero, Caronte, Netuno, Dentuço]
+        correta: 2
+        explicacao: Caronte é a mascote do navio e bichinho de estimação da Capitã {cap 5}.
+      - pergunta: Que nome Norman dá ao ovo de dragão?
+        opcoes: [Pereirinha, Flávio Dragão Grimm, Flávio Pereira Grimm, Pedro Pereira]
+        correta: 3
+        explicacao: '"Ele não vai ser um pet, ele vai ser um membro da família! Flávio Pereira Grimm!" {cap 4}'
+      - pergunta: O que havia de errado com o mapa que Norman comprou?
+        opcoes: [Era de brinquedo, Era de outra floresta, Estava rasgado, Estava em outra língua]
+        correta: 1
+        explicacao: Quatro dias depois do sequestro, o grupo descobre que o mapa é de brinquedo {cap 4}.
+      - pergunta: Quem foi o Receptáculo de Endos antes de Bunyy?
+        opcoes: [Arthur, Aurora, Damian, Merlin]
+        correta: 4
+        explicacao: Merlin, o verdadeiro "Guerreiro Lendário" dos contos, foi o receptáculo anterior {cap 5}.
+      - pergunta: Por que os nano-alteradores de Bunyy nunca funcionaram?
+        opcoes: [Ele não tomou a vacina, Os poderes dele são magia, Estavam com defeito, Rebeca os desligou]
+        correta: 2
+        explicacao: A Gancho revela que os poderes de Bunyy são magia, não efeito dos nano-alteradores {cap 5}.
+
+  - titulo: Até o fim do mundo
+    semana_de: '2026-11-16'
+    spoilers_ate: 10
+    perguntas:
+      - pergunta: Qual arma matriz Bunyy recebe da Capitã Gancho?
+        opcoes: [Excalibur, Número Sete, Destruidora de Dragões, Punhos do Herói]
+        correta: 2
+        explicacao: A Número Sete pertenceu a Merlin. A Destruidora de Dragões ficou com a Any e os Punhos do Herói com o Onhos {cap 7}.
+      - pergunta: Do que Merlin tinha pavor, segundo a Gancho?
+        opcoes: [Aranhas, Altura, Baratas, Água]
+        correta: 3
+        explicacao: A Gancho conta isso para consolar a Any, que trava diante dos bonecos de aranha {cap 7}.
+      - pergunta: Que golpe Bunyy desperta para salvar Onhos da aranha gigante?
+        opcoes: [Corte Flamejante, Meteoro Artificial, Domo de Fogo, Raio Ciano]
+        correta: 1
+        explicacao: Onhos se deixa engolir de propósito para dar a Bunyy um gatilho emocional {cap 8}.
+      - pergunta: Que recado a Gancho manda para Arthur depois do ataque ao navio?
+        opcoes: ['"Fiquem longe do meu navio"', '"Avisem ao Arthur que a Gancho está vindo"', '"O receptáculo é meu"', '"Até o fim do mundo"']
+        correta: 2
+        explicacao: Ela usa a inspiração absoluta e solta os invasores com esse recado {cap 9}.
+      - pergunta: De qual conto de fadas é a Babayaga?
+        opcoes: [Chapeuzinho Vermelho, Cachinhos Dourados, João e Maria, Branca de Neve]
+        correta: 3
+        explicacao: Babayaga é a Maria, e Ynsonia é o corpo do irmão dela, João {cap 10}.

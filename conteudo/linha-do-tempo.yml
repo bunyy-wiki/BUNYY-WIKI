@@ -1,0 +1,133 @@
+introducao: >-
+  A história de BUNYY em ordem, da criação do universo até o último capítulo da novel.
+  Quando a obra não dá uma data, a posição de um evento é aproximada.
+  Use "Li até" para esconder o que você ainda não leu.
+epocas:
+  - titulo: A criação
+    quando: Há milhares de anos
+    eventos:
+      - texto: '[Lucendi](#lucendi) e o irmão, [Akalighor](#akalighor), criam o universo.'
+        novel: 5
+      - texto: Quando surgem os mortais, Akalighor quer destruir tudo e recomeçar do zero. Lucendi não quer interferir nas escolhas deles, e os dois lutam por milênios.
+        novel: 5
+      - texto: Lucendi sacrifica a própria forma física e bane Akalighor para o [Abismo](#abismo), onde ele vive até hoje, fraco e cheio de ódio.
+        novel: 5
+        destaque: true
+      - texto: Os fragmentos de Lucendi se espalham pelo mundo. O contato dos seres vivos com eles dá origem às [bestas](#bestas) mágicas e aos [Submuris](#submuri).
+        novel: 5
+      - texto: Na briga, os dois perdem o poder de criar vida e deixam de ser oniscientes e onipotentes.
+        fonte: discord
+
+  - titulo: O reino de Aurora
+    quando: Data desconhecida
+    eventos:
+      - texto: As civilizações antigas não aceitam os Submuris, que são exilados, perseguidos e tratados como bestas.
+        novel: 5
+      - texto: A rainha [Aurora](#aurora) cria um refúgio para eles dentro de um pessegueiro mágico. Ela tem dois filhos, [Arthur](#arthur) e [Merlin](#merlin).
+        novel: 5
+      - texto: O reino é atacado pelo mundo exterior. Aurora morre e o povo se espalha. A árvore apodrece e vira o [Domínio Sombrio](#dominio-sombrio).
+        novel: 6
+        destaque: true
+
+  - titulo: Arthur e as sombras
+    quando: Depois da queda do reino
+    eventos:
+      - texto: Arthur some por anos e volta transformado, com a Excalibur, uma [arma matriz](#armas-matriz) feita de galhos do pessegueiro e de um olho de dragão. Diz que uma entidade dos céus lhe deu poderes para vingar o povo.
+        novel: 5
+      - texto: Na verdade, Akalighor, preso no Abismo, manipulou Arthur e lhe deu um corpo novo. Assim surgem as [sombras](#sombras), também chamadas de Kimuris.
+        novel: 5
+        destaque: true
+      - texto: Arthur passa milênios no seu salão estudando o irmão, Lucendi e Akalighor.
+        novel: 6
+
+  - titulo: A guerra de Merlin
+    quando: Data desconhecida
+    eventos:
+      - texto: A futura [Capitã Gancho](#capita-gancho) luta ao lado de Arthur. Numa emboscada, perde todo o time e, tomada pelo ódio, queima tudo num raio de quase dois quilômetros. Vira "A Máquina de Destruição".
+        novel: 8
+      - texto: Merlin, o [Receptáculo de Endos](#receptaculo-de-endos) da época, se rebela contra o irmão e se junta a um exército rebelde que impede os planos de Arthur. Tenta parar uma guerra movida por preconceito e poder.
+        novel: 7
+      - texto: A Gancho conhece Merlin, se junta a ele e passa a considerá-lo seu melhor amigo. Merlin é dono da Número Sete.
+        novel: 7
+      - texto: Merlin morre. Os contos dizem que ele se sacrificou, mas ninguém sabe o que aconteceu. A Gancho acredita que Arthur o matou. As sombras acham que ele guardou uma "última memória" capaz de libertar Akalighor.
+        novel: 7
+        destaque: true
+      - texto: A história vira lenda no Conto do Guerreiro Lendário, em que o vilão é "O Monarca".
+        novel: 4
+
+  - titulo: Séculos de lendas
+    quando: Ordem aproximada
+    eventos:
+      - texto: Os Submuris são caçados e eliminados de forma sistemática até cerca de mil anos atrás.
+        fonte: discord
+      - texto: A primeira Jolly Roger, navio da Gancho desde a época de Merlin, afunda há cerca de 600 anos. A segunda afunda porque [Caronte](#caronte) roeu o fundo.
+        novel: 7
+      - texto: 'Maria e o irmão João, de "João e Maria", são abandonados na floresta e escapam da bruxa da casa de doces. No orfanato, as crianças escaldam João, que vira sombra e é morto por um guerreiro.'
+        novel: 10
+      - texto: Maria reanima o corpo do irmão, que volta como [Ynsonia](#ynsonia), e mata todos no orfanato. Ganha os apelidos de Cuca, Bicho-Papão e [Babayaga](#babayaga), até ser acolhida por Arthur.
+        novel: 10
+        destaque: true
+
+  - titulo: Antes da prova
+    quando: Anos antes de 2006
+    eventos:
+      - texto: Em [Onoath](#onoath), muros de concreto protegem a cidade das bestas. Até 2006, os guerreiros lutam sem poderes, só com armas.
+        fonte: discord
+      - texto: Bunyy e o irmão, [Damian Grimm](#damian-grimm), encontram [Norman](#norman) no bosque.
+        novel: 1
+      - texto: 'Damian morre num dia em que "os muros e os guerreiros não puderam conter tudo". Antes, pede a Bunyy: "Não abandone ninguém." O nome dele vai para o memorial de mármore perto do muro.'
+        novel: 2
+        destaque: true
+      - texto: A [X-Emplar](#x-emplar), de [Rebeca Branco](#rebeca-branco), cria os [nano-alteradores](#nano-alteradores), aplicados por vacina. A turma de Bunyy é a primeira geração de guerreiros com poderes.
+        novel: 1
+
+  - titulo: 'Arco 1: a Prova dos Sete Dias'
+    quando: Outubro de 2006
+    eventos:
+      - quando: 3 de outubro de 2006
+        texto: Bunyy acorda atrasado para a prova final. Rebeca apresenta a Prova dos Sete Dias na [Floresta dos Pinheiros Negros](#floresta-dos-pinheiros-negros). A [Ordem do Fogo](#ordem-do-fogo) derrota uma mariposa gigante e anda o dia todo.
+        novel: 1
+      - quando: A primeira noite
+        texto: Norman fica sozinho diante de uma sombra. [Dim](#dimitri-grimm) é sequestrado.
+        novel: 2
+      - texto: O grupo salva Norman de Ynsonia. Bunyy quase morre sufocado, e no monitor de Rebeca aparece como morto.
+        novel: 2
+      - texto: Bunyy desperta os poderes pela primeira vez e corta o braço de Ynsonia, que foge chamando-o de "Lucendi". No sonho, Bunyy conhece Lucendi.
+        novel: 3
+        destaque: true
+      - texto: O governo se recusa a buscar Dim. Rebeca entrega ao grupo um rastreador de energia de sombras.
+        novel: 3
+      - quando: No Domínio Sombrio
+        texto: Arthur, que sente a energia do irmão em Bunyy, dá a Babayaga um prazo até 31 de outubro para trazer o receptáculo.
+        novel: 6
+      - texto: Na prisão, Dim conhece [Mel](#mel). No laboratório de Miku, ele morre envenenado e acorda vivo no dia seguinte.
+        novel: 6
+        destaque: true
+      - quando: Quatro dias após o sequestro
+        texto: O grupo atravessa a caverna do dragão, e Norman leva um ovo, o [Pereira](#pereira). Depois de cobras, sereias e uma entidade ancestral, é capturado pela [Jolly Roger III](#jolly-roger-iii).
+        novel: 4
+      - texto: A Gancho conta a história do mundo e revela que Bunyy é o Receptáculo de Endos. O grupo aceita treinar com ela para resgatar Dim e salvar o mundo.
+        novel: 5
+        destaque: true
+      - texto: O grupo recebe relíquias mágicas, e Bunyy recebe a Número Sete, que foi de Merlin. Numa torre escondida, uma aranha gigante ataca.
+        novel: 7
+      - texto: Bunyy desperta o Corte Flamejante para salvar Onhos. Na manhã seguinte, Babayaga atravessa Any com a lâmina do guarda-chuva.
+        novel: 8
+      - texto: Babayaga, Ynsonia, Toxcyna e Pípi e Pupu atacam o navio. A Gancho usa sua inspiração absoluta e manda o recado "avisem ao Arthur que a Gancho está vindo".
+        novel: 9
+        destaque: true
+      - texto: De volta ao Domínio, Arthur quase mata Babayaga e declara guerra. Ela muda de plano e decide trazer os aliados de Bunyy.
+        novel: 10
+      - quando: 31 de outubro de 2006
+        texto: Termina o prazo de Arthur para capturar o receptáculo.
+        novel: 6
+
+  - titulo: O que vem depois
+    quando: Segundo o Toom
+    eventos:
+      - quando: Por volta de 2012
+        texto: 'O prólogo mostra o fim do mundo: uma cidade em chamas e uma pequena pedra cheia de massa escura se partindo. O narrador diz que Bunyy é "meio que um dos responsáveis" e volta para 2006, "seis anos antes do fim do mundo".'
+        novel: 1
+        destaque: true
+      - texto: A história terá quatro arcos, cada um num ano. O arco 2 se passa em 2008, em uma semana só; o arco 3 em 2009; e o arco 4 em 2011–2012, depois de um salto de dois anos.
+        fonte: discord

@@ -46,7 +46,7 @@ def links(s):
     s = re.sub(r'<a href="#([a-z0-9-]+)">(.*?)</a>', lambda m: m.group(0) if m.group(1) in SLUGS or m.group(1) in TABS else m.group(2), s)
     s = re.sub(r'<a href="(https?://[^"]+)">', r'<a href="\1" target="_blank" rel="noopener">', s)
     return s
-TABS = {"inicio", "hq-e-novel", "curiosidades", "personagens", "lugares", "o-mundo", "grupos", "criaturas", "mapa"}
+TABS = {"inicio", "hq-e-novel", "curiosidades", "personagens", "lugares", "o-mundo", "grupos", "criaturas", "mapa", "linha-do-tempo", "contribuir", "comunidade", "quiz"}
 
 def md(texto, inline=False):
     h = markdown.markdown(texto or "", extensions=["tables", "sane_lists"])
@@ -187,13 +187,48 @@ ini["destaque_imagem"] = img(ini.get("destaque_imagem"))
 ini["fatos"] = [md(f["texto"], inline=True) for f in (ini.get("fatos") or []) if f and f.get("texto")]
 ini["novidades"] = [n for n in (ini.get("novidades") or []) if n and n.get("texto")]
 mapa = ler_yaml("mapa.yml")
+try:
+    LT = ler_yaml("linha-do-tempo.yml")
+except FileNotFoundError:
+    LT = {}
+linha = {"intro": md(LT.get("introducao") or "", inline=True), "epocas": []}
+for ep in LT.get("epocas") or []:
+    if not ep: continue
+    evs = []
+    for ev in ep.get("eventos") or []:
+        if not ev or not ev.get("texto"): continue
+        evs.append({"q": ev.get("quando") or "", "h": md(ev["texto"], inline=True), "nv": int(ev.get("novel") or 0),
+                    "dc": (ev.get("fonte") == "discord"), "x": bool(ev.get("destaque"))})
+    linha["epocas"].append({"t": ep.get("titulo") or "", "q": ep.get("quando") or "", "ev": evs})
+
+def opcional(nome):
+    try: return ler_yaml(nome)
+    except FileNotFoundError: return {}
+QZ = opcional("quiz.yml")
+quiz = []
+for q in QZ.get("quizzes") or []:
+    if not q or not q.get("perguntas"): continue
+    ps = []
+    for p in q["perguntas"]:
+        if not p or not p.get("opcoes"): continue
+        ps.append({"p": md(str(p.get("pergunta") or ""), inline=True), "o": [md(str(o), inline=True) for o in p["opcoes"]],
+                   "c": int(p.get("correta") or 1) - 1, "e": md(str(p.get("explicacao") or ""), inline=True)})
+    quiz.append({"t": q.get("titulo") or "", "d": str(q.get("semana_de") or ""), "sp": int(q.get("spoilers_ate") or 0), "ps": ps})
+quiz.sort(key=lambda q: q["d"])
+CM = opcional("comunidade.yml")
+comu = {"intro": md(CM.get("apresentacao") or "", inline=True), "envio": CM.get("link_envio") or "",
+        "widget": str(CM.get("discord_widget_id") or ""), "wb_s": str(CM.get("widgetbot_servidor") or ""), "wb_c": str(CM.get("widgetbot_canal") or ""),
+        "teorias": [{"t": x.get("titulo") or "", "a": x.get("autor") or "", "d": str(x.get("data") or ""), "sp": int(x.get("spoiler_ate") or 0),
+                     "h": md(x.get("texto") or ""), "img": img(x.get("imagem"))} for x in (CM.get("teorias") or []) if x and x.get("titulo")],
+        "fanarts": [{"img": img(x.get("imagem")), "t": x.get("titulo") or "", "a": x.get("autor") or "", "l": x.get("link_autor") or "",
+                     "d": str(x.get("data") or "")} for x in (CM.get("fanarts") or []) if x and x.get("imagem")]}
 dcurios.sort(key=lambda d: d["d"])
 
 DATA = {"pages": pages, "order": ORDEM_GRUPOS, "curios": curios, "config": CFG,
         "hq": [{"n": c["numero"], "t": c.get("titulo") or "", "c": c.get("classificacao") or "",
                 "nv": [v["numero"] for v in NOVEL if c["numero"] in (v.get("capitulos_da_hq") or [])]} for c in HQ],
         "novel": [{"n": c["numero"], "t": c.get("titulo") or "", "hq": c.get("capitulos_da_hq") or []} for c in NOVEL],
-        "acurios": acurios, "dcurios": [{"s": d["s"], "h": d["h"]} for d in dcurios], "inicio": ini, "mapa": mapa}
+        "acurios": acurios, "dcurios": [{"s": d["s"], "h": d["h"]} for d in dcurios], "inicio": ini, "mapa": mapa, "linha": linha, "quiz": quiz, "comu": comu}
 
 payload = json.dumps(DATA, ensure_ascii=False).replace("</", "<\\/")
 F = os.path.join(RAIZ, "ferramentas")
